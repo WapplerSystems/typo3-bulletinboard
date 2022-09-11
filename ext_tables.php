@@ -1,4 +1,7 @@
 <?php
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
@@ -9,8 +12,8 @@ if (!defined('TYPO3_MODE')) {
     'EXT:ws_bulletinboard/Resources/Private/Language/locallang_csh_tx_wsbulletinboard_domain_model_entry.xlf'
 );*/
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_wsbulletinboard_domain_model_entry');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_wsbulletinboard_domain_model_entry');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+ExtensionManagementUtility::addPageTSConfig(
     '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ws_bulletinboard/Configuration/TSconfig/ContentElementWizard.tsconfig">'
 );

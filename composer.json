@@ -15,23 +15,13 @@
 		}
 	],
 	"keywords": [
-		"TYPO3 CMS",
-		"Bulletinboard",
-		"WapplerSystems",
-		"Guest",
-		"Book",
-		"Feedback",
-		"Review"
+		"Bulletinboard"
 	],
 	"authors": [
 		{
 			"name": "Sven Wappler",
 			"role": "Developer",
 			"homepage": "https://wappler.systems/"
-		},
-		{
-			"name": "Franziska Krug",
-			"role": "Developer"
 		}
 	],
 	"require": {

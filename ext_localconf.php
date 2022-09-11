@@ -1,24 +1,30 @@
 <?php
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use WapplerSystems\WsBulletinboard\Controller\BulletinboardController;
+use WapplerSystems\WsBulletinboard\Hooks\FormElementCaptchaHook;
+
 defined('TYPO3_MODE') or die();
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+ExtensionUtility::configurePlugin(
     'ws_bulletinboard',
     'List',
     [
-        \WapplerSystems\WsBulletinboard\Controller\BulletinboardController::class => 'list',
+        BulletinboardController::class => 'list',
     ],
     [
     ]
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+ExtensionUtility::configurePlugin(
     'ws_bulletinboard',
     'Form',
     [
-        \WapplerSystems\WsBulletinboard\Controller\BulletinboardController::class => 'new,done,decline,confirm,entryNotFound',
+        BulletinboardController::class => 'new,done,decline,confirm,entryNotFound',
     ],
     [
-        \WapplerSystems\WsBulletinboard\Controller\BulletinboardController::class => 'new,done,decline,confirm,entryNotFound',
+        BulletinboardController::class => 'new,done,decline,confirm,entryNotFound',
     ]
 );
 
@@ -26,7 +32,7 @@ defined('TYPO3_MODE') or die();
 $icons = [
     'ext-ws-bulletinboard-icon' => 'ws_bulletinboard.svg',
 ];
-$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+$iconRegistry = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 foreach ($icons as $identifier => $path) {
     $iconRegistry->registerIcon(
         $identifier,
@@ -62,5 +68,4 @@ if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['wsbulletinboardcaptcha'] = [];
 }
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/form']['beforeRendering'][1571076908]
-    = \WapplerSystems\WsBulletinboard\Hooks\FormElementCaptchaHook::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/form']['beforeRendering'][1571076908] = FormElementCaptchaHook::class;
