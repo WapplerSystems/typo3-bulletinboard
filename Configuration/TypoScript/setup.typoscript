@@ -1,0 +1,43 @@
+plugin.tx_wsbulletinboard {
+
+  view {
+    templateRootPaths {
+      0 = EXT:ws_bulletinboard/Resources/Private/Templates/
+      1 = {$plugin.tx_wsbulletinboard.view.templateRootPath}
+    }
+
+    partialRootPaths {
+      0 = EXT:ws_bulletinboard/Resources/Private/Partials/
+      1 = {$plugin.tx_wsbulletinboard.view.partialRootPath}
+    }
+
+    layoutRootPaths {
+      0 = EXT:ws_bulletinboard/Resources/Private/Layouts/
+      1 = {$plugin.tx_wsbulletinboard.view.layoutRootPath}
+    }
+  }
+
+  settings {
+
+    paginate {
+      itemsPerPage = 10
+      insertAbove = 1
+      insertBelow = 1
+      prevNextHeaderTags = 1
+      maximumNumberOfLinks = 3
+    }
+
+  }
+
+}
+
+page {
+  includeCSS {
+    11232 = EXT:ws_bulletinboard/Resources/Public/CSS/styles.css
+  }
+
+  includeJSFooter {
+    11232 = EXT:ws_bulletinboard/Resources/Public/JavaScript/jquery.bsTextCounter.js
+  }
+
+}

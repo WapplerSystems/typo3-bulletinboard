@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z"
+		  product-name="ws_bulletinboard">
+		<header/>
+		<body>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="website">
+				<source>Website</source>
+			</trans-unit>
+
+			<trans-unit id="xFromY" xml:space="preserve">
+				<source>%1$s from %2$s</source>
+			</trans-unit>
+			<trans-unit id="dateTimeText" xml:space="preserve">
+				<source>%1$s at %2$s</source>
+			</trans-unit>
+			<trans-unit id="dateTimeFormat" xml:space="preserve">
+				<source>%m/%d/%Y at %H:%M</source>
+			</trans-unit>
+
+			<!-- Mail template -->
+			<trans-unit id="mail.title">
+				<source>New Guest feedback</source>
+			</trans-unit>
+			<trans-unit id="mail.hello">
+				<source>Hello</source>
+			</trans-unit>
+			<trans-unit id="mail.msg">
+				<source>Following is new feedback information</source>
+			</trans-unit>
+			<trans-unit id="mail.Name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="mail.City">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="mail.Email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="mail.Website">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="mail.Message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="mail.regards">
+				<source>Regards.</source>
+			</trans-unit>
+			<!-- Mail template -->
+
+
+			<trans-unit id="no_records">
+				<source>No entries found.</source>
+			</trans-unit>
+
+			<!-- Error messages -->
+			<trans-unit id="validator.newWsbulletinboard.name.1221560718">
+				<source>Field name is required.</source>
+			</trans-unit>
+			<trans-unit id="validator.newWsbulletinboard.email.1221560718">
+				<source>Field email is required.</source>
+			</trans-unit>
+			<trans-unit id="validator.newWsbulletinboard.email.1221559976">
+				<source>Invalid Email address</source>
+			</trans-unit>
+			<!-- Error messages -->
+
+
+			<trans-unit id="required">
+				<source>* These fields are required.</source>
+			</trans-unit>
+			<trans-unit id="controller.mailfrmt">
+				<source>E-Mail format is not valid.</source>
+			</trans-unit>
+			<!-- Flex form labels -->
+
+
+			<trans-unit id="paginate_overall" xml:space="preserve">
+				<source>Page %s of %s.</source>
+			</trans-unit>
+			<trans-unit id="paginate_next" xml:space="preserve">
+				<source>Next</source>
+			</trans-unit>
+			<trans-unit id="paginate_previous" xml:space="preserve">
+				<source>Previous</source>
+			</trans-unit>
+
+
+			<trans-unit id="validator.captcha.notvalid">
+				<source>The entered captcha is not correct.</source>
+			</trans-unit>
+			<trans-unit id="formEditor.elements.captcha">
+				<source>Captcha</source>
+			</trans-unit>
+
+
+			<trans-unit id="element.privacyPolicyCheckbox.properties.label">
+				<source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
+			</trans-unit>
+
+			<trans-unit id="msg.entryDone">
+				<source>It may take a while until your bulletinboard entry appears in the list.</source>
+			</trans-unit>
+			<trans-unit id="hdl.entryDone">
+				<source>Thank you for the bulletinboard entry</source>
+			</trans-unit>
+
+			<trans-unit id="msg.entryNotFound">
+				<source>Perhaps this has already been deleted or confirmed.</source>
+			</trans-unit>
+			<trans-unit id="hdl.entryNotFound">
+				<source>The entry was unfortunately not found</source>
+			</trans-unit>
+
+
+			<trans-unit id="hdl.entryConfirmed">
+				<source>The entry was confirmed</source>
+			</trans-unit>
+
+			<trans-unit id="hdl.entryDeclined">
+				<source>The entry was declined</source>
+			</trans-unit>
+
+
+			<trans-unit id="btn.confirm">
+				<source>Confirm</source>
+			</trans-unit>
+			<trans-unit id="btn.decline">
+				<source>Decline</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

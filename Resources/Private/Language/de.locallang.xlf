@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z"
+		  product-name="ws_bulletinboard">
+		<header/>
+		<body>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry">
+				<target>Wsbulletinboard</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.city">
+				<target>Stadt</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
+				<target>Email</target>
+			</trans-unit>
+			<trans-unit id="website">
+				<target>Website</target>
+			</trans-unit>
+			<trans-unit id="xFromY" xml:space="preserve">
+				<source>%1$s from %2$s</source>
+				<target>%1$s aus %2$s</target>
+			</trans-unit>
+			<trans-unit id="dateTimeFormat" xml:space="preserve">
+				<target>%d.%m.%Y um %H:%M Uhr</target>
+			</trans-unit>
+
+			<!-- Mail template -->
+			<trans-unit id="mail.title">
+				<target>Neues Gästefeedback</target>
+			</trans-unit>
+			<trans-unit id="mail.hello">
+				<target>Hallo</target>
+			</trans-unit>
+			<trans-unit id="mail.msg">
+				<target>Es folgen neue Feedback-Informationen</target>
+			</trans-unit>
+			<trans-unit id="mail.Name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="mail.City">
+				<target>Stadt</target>
+			</trans-unit>
+			<trans-unit id="mail.Email">
+				<target>Email</target>
+			</trans-unit>
+			<trans-unit id="mail.Website">
+				<target>Website</target>
+			</trans-unit>
+			<trans-unit id="mail.Message">
+				<target>Message</target>
+			</trans-unit>
+			<trans-unit id="mail.regards">
+				<target>Grüße.</target>
+			</trans-unit>
+			<!-- Mail template -->
+
+			<trans-unit id="no_records">
+				<source>No entries found.</source>
+				<target>Es wurden keine Einträge gefunden.</target>
+			</trans-unit>
+
+			<!-- Controller msg -->
+			<trans-unit id="controller.checkcaptcha.msg">
+				<target>Bitte überprüfen Sie das Captcha-Formular.</target>
+			</trans-unit>
+			<trans-unit id="controller.wrongcaptcha.msg">
+				<target>Sorry, falsches Captcha!</target>
+			</trans-unit>
+			<trans-unit id="controller.thanks.msg">
+				<target>Ihr Feedback wurde erfolgreich gespeichert! Vielen Dank!</target>
+			</trans-unit>
+			<trans-unit id="controller.insertError.msg">
+				<target>Bitte geben Sie die folgenden gültigen Informationen ein.</target>
+			</trans-unit>
+			<!-- Controller msg -->
+
+			<!-- Latest file -->
+			<trans-unit id="latest.heading">
+				<target>Bulletinboard</target>
+			</trans-unit>
+			<trans-unit id="latest.visit">
+				<target>Gästebuch besuchen</target>
+			</trans-unit>
+			<!-- Latest file -->
+
+			<!-- list file -->
+			<trans-unit id="list.from">
+				<target>from</target>
+			</trans-unit>
+			<trans-unit id="list.wroteon">
+				<target>Wrote on</target>
+			</trans-unit>
+			<trans-unit id="list.at">
+				<target>at</target>
+			</trans-unit>
+			<!-- list file -->
+
+			<!-- New file -->
+			<trans-unit id="new.heading">
+				<target>Neues Gästebuch</target>
+			</trans-unit>
+			<trans-unit id="new.create">
+				<target>Feedback schicken</target>
+			</trans-unit>
+			<!-- New file -->
+
+			<!-- Show File -->
+			<trans-unit id="show.heading">
+				<target>Einzelansicht für Gästebuch</target>
+			</trans-unit>
+			<trans-unit id="show.back">
+				<target>Zurück zur Liste</target>
+			</trans-unit>
+			<!-- Show File -->
+
+			<trans-unit id="emptymsg">
+				<target>Keine Aufzeichnungen gefunden!!</target>
+			</trans-unit>
+
+			<!-- Error messages -->
+			<trans-unit id="validator.newWsbulletinboard.name.1221560718">
+				<target>Feldname ist erforderlich.</target>
+			</trans-unit>
+			<trans-unit id="validator.newWsbulletinboard.email.1221560718">
+				<target>Feld E-Mail ist erforderlich.</target>
+			</trans-unit>
+			<trans-unit id="validator.newWsbulletinboard.email.1221559976">
+				<target>Ungültige E-Mail-Adresse</target>
+			</trans-unit>
+			<!-- Error messages -->
+
+			<!-- Flex form labels -->
+			<trans-unit id="flexform.thankyouPageId">
+				<target>Danke Page-ID</target>
+			</trans-unit>
+			<trans-unit id="flexform.adminEmail">
+				<target>Administrator E-Mail</target>
+			</trans-unit>
+			<trans-unit id="flexform.adminName">
+				<target>Administratorname</target>
+			</trans-unit>
+			<trans-unit id="flexform.emailSubject">
+				<target>E-Mail Betreff</target>
+			</trans-unit>
+			<trans-unit id="flexform.totalnumber">
+				<target>Anzahl der Zeilen anzeigen</target>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<target>Sortierung</target>
+			</trans-unit>
+			<trans-unit id="flexform.newfirst">
+				<target>Das neuste zuerst</target>
+			</trans-unit>
+			<trans-unit id="flexform.oldfirst">
+				<target>Die ältesten zu erst</target>
+			</trans-unit>
+			<trans-unit id="flexform.detailpage">
+				<target>Detailseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.newformpage">
+				<target>Gastformularseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.backpage">
+				<target>Wählen Sie Rückseite</target>
+			</trans-unit>
+			<trans-unit id="flexform.storagepage">
+				<target>Speicherseite auswählen</target>
+			</trans-unit>
+
+			<trans-unit id="wsbulletinboard_messages">
+				<target>Gästebuch: Nachrichten</target>
+			</trans-unit>
+			<trans-unit id="wsbulletinboard_detailpage">
+				<target>Gästebuch: Detail anzeigen</target>
+			</trans-unit>
+			<trans-unit id="wsbulletinboard_latestmessages">
+				<target>Gästebuch: Neueste Nachrichten</target>
+			</trans-unit>
+
+			<trans-unit id="require">
+				<target>* Diese Felder müssen ausgefüllt werden.</target>
+			</trans-unit>
+
+			<trans-unit id="element.fieldsetEntry.properties.label">
+				<target>Neuer Gästebucheintrag</target>
+			</trans-unit>
+			<trans-unit id="element.name.properties.label">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="element.email.properties.label">
+				<target>E-Mail</target>
+			</trans-unit>
+			<trans-unit id="element.website.properties.label">
+				<target>Website</target>
+			</trans-unit>
+			<trans-unit id="element.city.properties.label">
+				<target>Stadt</target>
+			</trans-unit>
+			<trans-unit id="element.message.properties.label">
+				<target>Nachricht</target>
+			</trans-unit>
+			<trans-unit id="element.captcha.properties.label">
+				<target>Captcha</target>
+			</trans-unit>
+			<trans-unit id="element.privacyPolicyCheckbox.properties.label">
+				<target><![CDATA[Ich habe die <a href="%s">Datenschutzbestimmungen</a> gelesen und akzeptiere sie.]]></target>
+			</trans-unit>
+			<trans-unit id="element.Form.renderingOptions.submitButtonLabel">
+				<target>Eintragen</target>
+			</trans-unit>
+
+
+			<trans-unit id="paginate_overall" xml:space="preserve">
+				<target>Seite %s von %s.</target>
+			</trans-unit>
+			<trans-unit id="paginate_next" xml:space="preserve">
+				<target>Nächste</target>
+			</trans-unit>
+			<trans-unit id="paginate_previous" xml:space="preserve">
+				<target>Vorherige</target>
+			</trans-unit>
+
+
+			<trans-unit id="validator.captcha.notvalid" resname="validator.captcha.notvalid">
+				<source>The entered captcha is not correct.</source>
+				<target>Der eingegebene Text ist nicht korrekt.</target>
+			</trans-unit>
+
+
+			<trans-unit id="msg.entryDone">
+				<source>It may take a while until your bulletinboard entry appears in the list.</source>
+				<target>Es kann etwas dauern, bis Ihr Gästebucheintrag in der Liste erscheint.</target>
+			</trans-unit>
+			<trans-unit id="hdl.entryDone">
+				<source>Thank you for the bulletinboard entry</source>
+				<target>Danke für den Gästebucheintrag</target>
+			</trans-unit>
+
+			<trans-unit id="msg.entryNotFound">
+				<source>Perhaps this has already been deleted or confirmed.</source>
+				<target>Vielleicht wurde dieser bereits gelöscht oder bestätigt.</target>
+			</trans-unit>
+			<trans-unit id="hdl.entryNotFound">
+				<source>The entry was unfortunately not found</source>
+				<target>Dieser Eintrag wurde leider nicht gefunden.</target>
+			</trans-unit>
+
+
+			<trans-unit id="hdl.entryConfirmed">
+				<source>The entry was confirmed</source>
+				<target>Der Eintrag wurde bestätigt</target>
+			</trans-unit>
+
+			<trans-unit id="hdl.entryDeclined">
+				<source>The entry was declined</source>
+				<target>Der Eintrag wurde erfolgreich gelöscht</target>
+			</trans-unit>
+
+
+			<trans-unit id="btn.confirm">
+				<source>Confirm</source>
+				<target>Bestätigen</target>
+			</trans-unit>
+			<trans-unit id="btn.decline">
+				<source>Decline</source>
+				<target>Ablehnen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

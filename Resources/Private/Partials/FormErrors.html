@@ -1,0 +1,11 @@
+<f:form.validationResults for="{field}">
+    <ul class="typo3-messages">
+        <f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="propertyErrors">
+            <f:for each="{propertyErrors}" as="propertyError">
+                <li class="alert alert-danger">
+                    <f:translate key="validator.{propertyPath}.{propertyError.code}" default="{propertyError}"/>
+                </li>
+            </f:for>
+        </f:for>
+    </ul>
+</f:form.validationResults>

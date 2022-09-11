@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-08T11:15:02Z"
+		  product-name="ws_bulletinboard">
+		<header/>
+		<body>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry">
+				<target>Gästebuch</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.city">
+				<target>Stadt</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
+				<target>Email</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.website">
+				<target>Meine Website</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.message">
+				<target>Botschaft</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.captcha">
+				<target>Captcha</target>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.terms">
+				<target>AGB akzeptiert</target>
+			</trans-unit>
+
+			<trans-unit id="wsbulletinboard_form">
+				<target>Gästebuch: Formular</target>
+			</trans-unit>
+			<trans-unit id="wsbulletinboard_list">
+				<target>Gästebuch: Liste</target>
+			</trans-unit>
+
+
+			<trans-unit id="flexforms_tab.general">
+				<source>General settings</source>
+				<target>Allgemeine Einstellungen</target>
+			</trans-unit>
+			<trans-unit id="flexforms_tab.fields">
+				<source>Form fields</source>
+				<target>Formularfelder</target>
+			</trans-unit>
+
+			<trans-unit id="flexform.thankyouPageId">
+				<target>"Danke" Seiten-ID</target>
+			</trans-unit>
+			<trans-unit id="flexform.auditor.emailaddress">
+				<target>E-Mail</target>
+			</trans-unit>
+			<trans-unit id="flexform.auditor.name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="flexform.emailSubject">
+				<target>E-Mail Betreff</target>
+			</trans-unit>
+			<trans-unit id="flexform.automaticApproval">
+				<source>Automatic approval (not recommended)</source>
+				<target>Automatische Bestätigung (nicht empfohlen)</target>
+			</trans-unit>
+			<trans-unit id="flexform.itemsPerPage">
+				<target>Anzahl der Einträge pro Seite anzeigen</target>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<target>Sortierung</target>
+			</trans-unit>
+			<trans-unit id="flexform.newFirst">
+				<target>Das neuste zuerst</target>
+			</trans-unit>
+			<trans-unit id="flexform.oldFirst">
+				<target>Die ältesten zu erst</target>
+			</trans-unit>
+			<trans-unit id="flexform.verification.email.senderName">
+				<target>Absendername der Bestätigungs-E-Mail</target>
+			</trans-unit>
+			<trans-unit id="flexform.verification.email.senderEmailAddress">
+				<target>Absender-E-Mail-Adresse der Bestätigungs-eMail</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.email.enable">
+				<source>Enable the email field</source>
+				<target>E-Mail Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.email.mandatory">
+				<source>The email field is mandatory</source>
+				<target>E-Mail-Feld ist ein Pflichtfeld</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.city.enable">
+				<source>Enable the city field</source>
+				<target>Stadt-Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.city.mandatory">
+				<source>The city field is mandatory</source>
+				<target>Stadt-Feld ist ein Pflichtfeld</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.website.enable">
+				<source>Enable the website field</source>
+				<target>Website-Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.website.mandatory">
+				<source>The website field is mandatory</source>
+				<target>Website-Feld ist ein Pflichtfeld</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.captcha.enable">
+				<source>Enable the captcha field</source>
+				<target>Captcha-Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.privacyPolicy.enable">
+				<source>Enable the privacy policy field</source>
+				<target>Datenschutz-Feld aktivieren</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.privacyPolicy.page">
+				<source>Privacy policy page</source>
+				<target>Datenschutz-Seite</target>
+			</trans-unit>
+			<trans-unit id="flexform.fields.message.maxCharacters">
+				<source>Maximum characters in message field</source>
+				<target>Maximale Anzahl von Zeichen im Nachricht-Feld</target>
+			</trans-unit>
+
+			<trans-unit id="flexform.function">
+				<target>Funktion</target>
+			</trans-unit>
+			<trans-unit id="flexform.function.list">
+				<target>Liste</target>
+			</trans-unit>
+			<trans-unit id="flexform.function.form">
+				<target>Formular</target>
+			</trans-unit>
+			<trans-unit id="flexform.storagePid">
+				<source>Storage Page ID</source>
+				<target>Ordner zur Speicherung der Einträge</target>
+			</trans-unit>
+			<trans-unit id="flexform.verification.recipients">
+				<source>Recipients for checking the new entries</source>
+				<target>Die Empfänger zur Prüfung der neuen Einträge</target>
+			</trans-unit>
+			<trans-unit id="flexform.verification.recipient">
+				<source>Recipient</source>
+				<target>Empfänger</target>
+			</trans-unit>
+
+
+			<trans-unit id="tsconfig.wizard.WsBulletinboardForm.title">
+				<source>WapplerSystems Bulletinboard - Form</source>
+				<target>WapplerSystems Gästebuch - Formular</target>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsBulletinboardForm.description">
+				<source>This allows the visitor to write a new entry.</source>
+				<target>Dies ermöglicht dem Besucher, einen neuen Eintrag zu schreiben.</target>
+			</trans-unit>
+
+			<trans-unit id="tsconfig.wizard.WsBulletinboardList.title">
+				<source>WapplerSystems Bulletinboard - List</source>
+				<target>WapplerSystems Gästebuch - Liste</target>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsBulletinboardList.description">
+				<source>This outputs the entries.</source>
+				<target>Dies gibt die Einträge.</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

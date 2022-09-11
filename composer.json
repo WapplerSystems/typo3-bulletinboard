@@ -1,0 +1,52 @@
+{
+	"name": "wapplersystems/ws-bulletinboard",
+	"type": "typo3-cms-extension",
+	"description": "",
+	"homepage": "https://extensions.typo3.org/extension/ws_bulletinboard/",
+	"license": "GPL-2.0+",
+	"support": {
+		"issues": "https://github.com/WapplerSystems/typo3-bulletinboard/issues",
+		"source": "https://github.com/WapplerSystems/typo3-bulletinboard"
+	},
+	"funding": [
+		{
+			"type": "other",
+			"url": "https://wappler.systems/"
+		}
+	],
+	"keywords": [
+		"TYPO3 CMS",
+		"Bulletinboard",
+		"WapplerSystems",
+		"Guest",
+		"Book",
+		"Feedback",
+		"Review"
+	],
+	"authors": [
+		{
+			"name": "Sven Wappler",
+			"role": "Developer",
+			"homepage": "https://wappler.systems/"
+		},
+		{
+			"name": "Franziska Krug",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"typo3/cms-core": "^11",
+		"typo3/cms-form": "^11"
+	},
+	"autoload": {
+		"psr-4": {
+			"WapplerSystems\\WsBulletinboard\\": "Classes/",
+			"Gregwar\\Captcha\\": "Resources/Private/PHP/Gregwar/Captcha/"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "ws_bulletinboard"
+		}
+	}
+}

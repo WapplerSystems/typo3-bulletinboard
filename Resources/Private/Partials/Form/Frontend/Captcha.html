@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<formvh:renderRenderable renderable="{element}">
+    <f:render partial="Field/Field" arguments="{element: element}" contentAs="elementContent">
+        <div class="row {element.properties.elementErrorClassAttribute}">
+            <div class="col col-lg-3">
+            <f:form.textfield property="{element.identifier}"
+                              id="{element.uniqueIdentifier}"
+                              value=""
+                              class="{element.properties.elementClassAttribute} form-control"
+                              errorClass="{element.properties.elementErrorClassAttribute}"
+                              additionalAttributes="{formvh:translateElementProperty(element: element, property: 'fluidAdditionalAttributes')}"/>
+            </div>
+            <div class="captcha col">
+                <img src="{element.properties.captcha}" alt="Captcha image"/>
+            </div>
+        </div>
+    </f:render>
+</formvh:renderRenderable>
+</html>

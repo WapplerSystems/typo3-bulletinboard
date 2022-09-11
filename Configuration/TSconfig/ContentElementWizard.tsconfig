@@ -1,0 +1,25 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+  elements {
+    WsBulletinboardForm {
+      iconIdentifier = ext-ws-bulletinboard-icon
+      title = LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsBulletinboardForm.title
+      description = LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsBulletinboardForm.description
+      tt_content_defValues {
+        CType = list
+        list_type = wsbulletinboard_form
+      }
+    }
+
+    WsBulletinboardList {
+      iconIdentifier = ext-ws-bulletinboard-icon
+      title = LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsBulletinboardList.title
+      description = LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsBulletinboardList.description
+      tt_content_defValues {
+        CType = list
+        list_type = wsbulletinboard_list
+      }
+    }
+  }
+
+  show = *
+}

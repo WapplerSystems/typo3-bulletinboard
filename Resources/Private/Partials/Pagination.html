@@ -1,0 +1,96 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:wsgb="http://typo3.org/ns/WapplerSystems/WsBulletinboard/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:if condition="{configuration.insertAbove}">
+    <f:render section="paginator" arguments="{_all}"/>
+</f:if>
+
+{content -> f:format.raw()}
+
+<f:if condition="{configuration.insertBelow}">
+    <f:render section="paginator" arguments="{_all}"/>
+</f:if>
+
+<f:section name="paginator">
+    <f:if condition="{paginator.numberOfPages} > 1">
+        <f:if condition="{pagination.previousPageNumber}">
+            <f:if condition="{pagination.previousPageNumber} > 1">
+                <f:then>
+                    <wsgb:headerData>
+                        <link rel="prev" href="{f:uri.action(arguments: {currentPage: pagination.previousPageNumber}) -> f:format.htmlentities()}"/>
+                    </wsgb:headerData>
+                </f:then>
+                <f:else>
+                    <wsgb:headerData>
+                        <link rel="prev" href="{f:uri.action() -> f:format.htmlentities()}"/>
+                    </wsgb:headerData>
+                </f:else>
+            </f:if>
+        </f:if>
+        <f:if condition="{pagination.nextPageNumber}">
+            <wsgb:headerData>
+                <link rel="next" href="{f:uri.action(arguments: {currentPage: pagination.nextPageNumber}) -> f:format.htmlentities()}"/>
+            </wsgb:headerData>
+        </f:if>
+
+        <div class="page-navigation">
+            <ul class="pagination justify-content-center">
+                <f:if condition="{pagination.previousPageNumber}">
+                    <li class="page-item previous">
+                        <f:if condition="{pagination.previousPageNumber} > 1">
+                            <f:then>
+                                <f:link.action class="page-link" addQueryStringMethod="GET" arguments="{currentPage: pagination.previousPage}">
+                                    <f:translate key="paginate_previous"/>
+                                </f:link.action>
+                            </f:then>
+                            <f:else>
+                                <f:link.action class="page-link" addQueryStringMethod="GET">
+                                    <f:translate key="paginate_previous"/>
+                                </f:link.action>
+                            </f:else>
+                        </f:if>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.displayRangeStart} > 1">
+                    <li class="page-item first">
+                        <f:link.action class="page-link" addQueryStringMethod="GET">1</f:link.action>
+                    </li>
+                </f:if>
+                <f:if condition="{pagination.hasLessPages}">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">....</a></li>
+                </f:if>
+                <f:for each="{pagination.allPageNumbers}" as="page" iteration="iterator">
+                    <f:if condition="{iterator.cycle} == {paginator.currentPageNumber}">
+                        <f:then>
+                            <li class="page-item current disabled"><a class="page-link" href="#" tabindex="-1">{iterator.cycle}</a></li>
+                        </f:then>
+                        <f:else>
+                            <li class="page-item">
+                                <f:if condition="{iterator.cycle} > 1">
+                                    <f:then>
+                                        <f:link.action class="page-link" addQueryStringMethod="GET" arguments="{currentPage: iterator.cycle}">{iterator.cycle}</f:link.action>
+                                    </f:then>
+                                    <f:else>
+                                        <f:link.action class="page-link" addQueryStringMethod="GET">{iterator.cycle}</f:link.action>
+                                    </f:else>
+                                </f:if>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+                <f:if condition="{pagination.hasMorePages}">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">....</a></li>
+                </f:if>
+                <f:if condition="{pagination.nextPageNumber}">
+                    <li class="page-item last next">
+                        <f:link.action class="page-link" addQueryStringMethod="GET" arguments="{currentPage: pagination.nextPageNumber}">
+                            <f:translate key="paginate_next"/>
+                        </f:link.action>
+                    </li>
+                </f:if>
+            </ul>
+        </div>
+    </f:if>
+</f:section>
+</html>

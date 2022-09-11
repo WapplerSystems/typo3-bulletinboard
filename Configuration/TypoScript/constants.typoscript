@@ -1,0 +1,16 @@
+plugin.tx_wsbulletinboard {
+  view {
+    # cat=plugin.tx_wsbulletinboard_form/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:ws_bulletinboard/Resources/Private/Templates/
+    # cat=plugin.tx_wsbulletinboard_form/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:ws_bulletinboard/Resources/Private/Partials/
+    # cat=plugin.tx_wsbulletinboard_form/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:ws_bulletinboard/Resources/Private/Layouts/
+  }
+
+  settings {
+
+
+
+  }
+}

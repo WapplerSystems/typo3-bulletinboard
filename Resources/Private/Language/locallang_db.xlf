@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_bulletinboard">
+		<header/>
+		<body>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry">
+				<source>Bulletinboard</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.website">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.terms">
+				<source>Terms accepted</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.action_key">
+				<source>Action key</source>
+			</trans-unit>
+
+			<trans-unit id="wsbulletinboard_form">
+				<source>Bulletinboard: Form</source>
+			</trans-unit>
+			<trans-unit id="wsbulletinboard_list">
+				<source>Bulletinboard: List</source>
+			</trans-unit>
+
+
+			<trans-unit id="tsconfig.wizard.WsBulletinboardForm.title">
+				<source>WapplerSystems Bulletinboard - Form</source>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsBulletinboardForm.description">
+				<source>This allows the visitor to write a new entry.</source>
+			</trans-unit>
+
+			<trans-unit id="tsconfig.wizard.WsBulletinboardList.title">
+				<source>WapplerSystems Bulletinboard - List</source>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsBulletinboardList.description">
+				<source>This outputs the entries.</source>
+			</trans-unit>
+
+
+			<trans-unit id="flexform.thankyouPageId">
+				<source>"Thank you" page</source>
+			</trans-unit>
+			<trans-unit id="flexform.verification.recipients">
+				<source>Recipients for checking the new entries</source>
+			</trans-unit>
+			<trans-unit id="flexform.verification.recipient">
+				<source>Recipient</source>
+			</trans-unit>
+			<trans-unit id="flexform.auditor.emailaddress">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="flexform.auditor.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="flexform.emailSubject">
+				<source>Email subject</source>
+			</trans-unit>
+			<trans-unit id="flexform.itemsPerPage">
+				<source>Show number of entries per page</source>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+			<trans-unit id="flexform.newFirst">
+				<source>Newest first</source>
+			</trans-unit>
+			<trans-unit id="flexform.oldFirst">
+				<source>Oldest first</source>
+			</trans-unit>
+			<trans-unit id="flexform.automaticApproval">
+				<source>Automatic approval (not recommended)</source>
+			</trans-unit>
+			<trans-unit id="flexform.verification.email.senderName">
+				<source>Sender name of verification email</source>
+			</trans-unit>
+			<trans-unit id="flexform.verification.email.senderEmailAddress">
+				<source>Sender email address of verification email</source>
+			</trans-unit>
+			<trans-unit id="flexforms_tab.general">
+				<source>General settings</source>
+			</trans-unit>
+			<trans-unit id="flexforms_tab.fields">
+				<source>Form fields</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.email.enable">
+				<source>Enable the email field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.email.mandatory">
+				<source>The email field is mandatory</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.city.enable">
+				<source>Enable the city field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.city.mandatory">
+				<source>The city field is mandatory</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.website.enable">
+				<source>Enable the website field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.website.mandatory">
+				<source>The website field is mandatory</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.captcha.enable">
+				<source>Enable the captcha field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.privacyPolicy.enable">
+				<source>Enable the privacy policy field</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.privacyPolicy.page">
+				<source>Privacy policy page</source>
+			</trans-unit>
+			<trans-unit id="flexform.fields.message.maxCharacters">
+				<source>Maximum characters in message field</source>
+			</trans-unit>
+
+
+			<trans-unit id="flexform.function">
+				<source>Function</source>
+			</trans-unit>
+			<trans-unit id="flexform.function.list">
+				<source>List</source>
+			</trans-unit>
+			<trans-unit id="flexform.function.form">
+				<source>Form</source>
+			</trans-unit>
+			<trans-unit id="flexform.storagePid">
+				<source>Storage Page ID</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,16 @@
+
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            220 = EXT:ws_bulletinboard/Configuration/Yaml/FormSetup.yaml
+        }
+    }
+}
+
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            220 = EXT:ws_bulletinboard/Configuration/Yaml/FormSetup.yaml
+        }
+    }
+}
