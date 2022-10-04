@@ -82,7 +82,7 @@
 				<source>Oldest first</source>
 			</trans-unit>
 			<trans-unit id="flexform.automaticApproval">
-				<source>Automatic approval (not recommended)</source>
+				<source>Automatic approval</source>
 			</trans-unit>
 			<trans-unit id="flexform.verification.email.senderName">
 				<source>Sender name of verification email</source>
@@ -95,33 +95,6 @@
 			</trans-unit>
 			<trans-unit id="flexforms_tab.fields">
 				<source>Form fields</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.email.enable">
-				<source>Enable the email field</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.email.mandatory">
-				<source>The email field is mandatory</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.city.enable">
-				<source>Enable the city field</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.city.mandatory">
-				<source>The city field is mandatory</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.website.enable">
-				<source>Enable the website field</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.website.mandatory">
-				<source>The website field is mandatory</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.captcha.enable">
-				<source>Enable the captcha field</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.privacyPolicy.enable">
-				<source>Enable the privacy policy field</source>
-			</trans-unit>
-			<trans-unit id="flexform.fields.privacyPolicy.page">
-				<source>Privacy policy page</source>
 			</trans-unit>
 			<trans-unit id="flexform.fields.message.maxCharacters">
 				<source>Maximum characters in message field</source>

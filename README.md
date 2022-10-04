@@ -5,10 +5,8 @@
 - Based on extbase & fluid, implementing best practices from TYPO3 CMS
 - Frontend template based on Twitter Bootstrap (v4)
 - Uses form extension
-- Adjustable privacy page
-- Simple captcha can be added
+- Needs authentication by fe_login
 - Honeypot with the help of the form extension
-- Adjustable mandatory fields
 - Confirm/Decline of new entries by frontend too
 
 ## Usage
@@ -32,6 +30,5 @@ Download and install the extension with the extension manager module.
 ## Credits ##
 
 * Sven Wappler
-* Franziska Krug
 
 [1]: https://getcomposer.org/

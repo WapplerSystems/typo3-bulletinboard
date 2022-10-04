@@ -30,8 +30,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"WapplerSystems\\WsBulletinboard\\": "Classes/",
-			"Gregwar\\Captcha\\": "Resources/Private/PHP/Gregwar/Captcha/"
+			"WapplerSystems\\WsBulletinboard\\": "Classes/"
 		}
 	},
 	"extra": {

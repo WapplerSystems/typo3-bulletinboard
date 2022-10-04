@@ -22,22 +22,6 @@ use WapplerSystems\WsBulletinboard\Domain\Repository\EntryRepository;
 class BulletinboardController extends AbstractController
 {
 
-    /**
-     *
-     * @var EntryRepository
-     */
-    protected $entryRepository;
-
-
-    /**
-     * @param EntryRepository $entryRepository
-     * @internal
-     */
-    public function injectEntryRepository(EntryRepository $entryRepository): void
-    {
-        $this->entryRepository = $entryRepository;
-    }
-
 
     /**
      *
@@ -48,7 +32,9 @@ class BulletinboardController extends AbstractController
      */
     public function listAction(int $currentPage = 1): void
     {
-        $entries = $this->entryRepository->findSorted($this->settings);
+
+        $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
+        $entries = $entryRepository->findSorted($this->settings);
 
         $assignedValues = [
             'settings' => $this->settings
@@ -103,13 +89,14 @@ class BulletinboardController extends AbstractController
      */
     public function declineAction(string $action_key): void
     {
-        $entry = $this->entryRepository->findOneByActionKey($action_key);
+        $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
+        $entry = $entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
             $this->forward('entryNotFound');
         } else {
 
-            $this->entryRepository->remove($entry);
+            $entryRepository->remove($entry);
             $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
             $persistenceManager->persistAll();
         }
@@ -124,13 +111,14 @@ class BulletinboardController extends AbstractController
      */
     public function confirmAction(string $action_key): void
     {
-        $entry = $this->entryRepository->findOneByActionKey($action_key);
+        $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
+        $entry = $entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
             $this->forward('entryNotFound');
         } else {
             $entry->setHidden(0);
-            $this->entryRepository->update($entry);
+            $entryRepository->update($entry);
             $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
             $persistenceManager->persistAll();
         }

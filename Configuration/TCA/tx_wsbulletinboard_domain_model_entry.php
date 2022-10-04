@@ -3,7 +3,7 @@
 return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry',
-        'label' => 'name',
+        'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -19,14 +19,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'name,city,email,website,message,',
+        'searchFields' => 'title,message',
         'iconfile' => 'EXT:ws_bulletinboard/Resources/Public/Icons/tx_wsbulletinboard_domain_model_entry.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, city, email, website, message, action_key',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, fe_user, message, action_key',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tstamp, name, city, email, website, message, action_key, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tstamp, title, fe_user, message, action_key, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -134,7 +134,7 @@ return [
                 'readOnly' => true,
             ]
         ],
-        'name' => [
+        'title' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.name',
             'config' => [
@@ -143,39 +143,30 @@ return [
                 'eval' => 'trim,required'
             ],
         ],
+        'fe_user' => [
+            'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.fe_user',
+            'config' => [
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'pages',
+                'maxitems' => 1,
+                'minitems' => 0,
+                'size' => 1,
+                'default' => 0,
+                'suggestOptions' => [
+                    'default' => [
+                        'additionalSearchFields' => 'nav_title, alias, url',
+                        'addWhere' => 'AND pages.doktype = 1'
+                    ]
+                ]
+            ]
+        ],
         'action_key' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.action_key',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-            ],
-        ],
-        'city' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.city',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            ],
-        ],
-        'email' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.email',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim,email,required'
-            ],
-        ],
-        'website' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.website',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
             ],
         ],
         'message' => [

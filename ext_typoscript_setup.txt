@@ -2,7 +2,7 @@
 module.tx_form {
     settings {
         yamlConfigurations {
-            220 = EXT:ws_bulletinboard/Configuration/Yaml/FormSetup.yaml
+            520 = EXT:ws_bulletinboard/Configuration/Yaml/FormSetup.yaml
         }
     }
 }
@@ -10,7 +10,7 @@ module.tx_form {
 plugin.tx_form {
     settings {
         yamlConfigurations {
-            220 = EXT:ws_bulletinboard/Configuration/Yaml/FormSetup.yaml
+            520 = EXT:ws_bulletinboard/Configuration/Yaml/FormSetup.yaml
         }
     }
 }

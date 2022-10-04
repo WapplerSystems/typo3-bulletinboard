@@ -33,11 +33,11 @@ plugin.tx_wsbulletinboard {
 
 page {
   includeCSS {
-    11232 = EXT:ws_bulletinboard/Resources/Public/CSS/styles.css
+    wsbulletinboard = EXT:ws_bulletinboard/Resources/Public/CSS/styles.css
   }
 
   includeJSFooter {
-    11232 = EXT:ws_bulletinboard/Resources/Public/JavaScript/jquery.bsTextCounter.js
+    wsbulletinboard = EXT:ws_bulletinboard/Resources/Public/JavaScript/jquery.bsTextCounter.js
   }
 
 }

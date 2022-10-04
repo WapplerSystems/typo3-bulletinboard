@@ -10,14 +10,8 @@ TYPO3:
           __inheritances:
             10: 'TYPO3.CMS.Form.prototypes.standard'
           formEditor:
-            dynamicRequireJsModules:
-              additionalViewModelModules:
-                1627574116: 'TYPO3/CMS/WsBulletinboard/Backend/FormEditor/CaptchaViewModel'
             translationFiles:
               160: 'EXT:ws_bulletinboard/Resources/Private/Language/locallang.xlf'
-            formEditorPartials:
-              FormElement-Captcha: 'Stage/SimpleTemplate'
-              FormElement-PrivacyPolicyCheckbox: 'Stage/SimpleTemplate'
 
           formElementsDefinition:
             Form:
@@ -27,80 +21,4 @@ TYPO3:
                     160: 'EXT:ws_bulletinboard/Resources/Private/Language/locallang.xlf'
                 partialRootPaths:
                   1623227656: 'EXT:ws_bulletinboard/Resources/Private/Partials/Form/Frontend/'
-
-            Captcha:
-              implementationClassName: 'WapplerSystems\WsBulletinboard\Domain\Model\FormElements\CaptchaElement'
-              properties:
-                elementErrorClassAttribute: 'f3-form-error is-invalid'
-              formEditor:
-                label: 'Captcha'
-                group: custom
-                groupSorting: 1000
-                iconIdentifier: 't3-form-captcha-element'
-                editors:
-                  100:
-                    identifier: header
-                    templateName: Inspector-FormElementHeaderEditor
-                  200:
-                    identifier: label
-                    templateName: Inspector-TextEditor
-                    label: formEditor.elements.FormElement.editor.label.label
-                    propertyPath: label
-                  230:
-                    identifier: elementDescription
-                    templateName: Inspector-TextEditor
-                    label: formEditor.elements.FormElement.editor.elementDescription.label
-                    propertyPath: properties.elementDescription
-                  700:
-                    identifier: gridColumnViewPortConfiguration
-                    templateName: Inspector-GridColumnViewPortConfigurationEditor
-                    label: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.label
-                    configurationOptions:
-                      viewPorts:
-                        10:
-                          viewPortIdentifier: xs
-                          label: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.xs.label
-                        20:
-                          viewPortIdentifier: sm
-                          label: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.sm.label
-                        30:
-                          viewPortIdentifier: md
-                          label: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.md.label
-                        40:
-                          viewPortIdentifier: lg
-                          label: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.lg.label
-                      numbersOfColumnsToUse:
-                        label: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.label
-                        propertyPath: 'properties.gridColumnClassAutoConfiguration.viewPorts.{@viewPortIdentifier}.numbersOfColumnsToUse'
-                        fieldExplanationText: formEditor.elements.FormElement.editor.gridColumnViewPortConfiguration.numbersOfColumnsToUse.fieldExplanationText
-
-            PrivacyPolicyCheckbox:
-              __inheritances:
-                10: 'TYPO3.CMS.Form.prototypes.standard.formElementsDefinition.Checkbox'
-              formEditor:
-                label: 'formEditor.elements.privacyPolicyCheckbox.label'
-                group: select
-                groupSorting: 100
-                iconIdentifier: 't3-form-icon-checkbox'
-                editors:
-                  660:
-                    identifier: 'pageUid'
-                    templateName: 'Inspector-Typo3WinBrowserEditor'
-                    label: 'Privacy policy page'
-                    buttonLabel: 'formEditor.elements.Form.finisher.Redirect.editor.pageUid.buttonLabel'
-                    browsableType: pages
-                    propertyPath: 'properties.privacyPolicyUid'
-                    propertyValidatorsMode: 'OR'
-                    propertyValidators:
-                      10: 'Integer'
-                      20: 'FormElementIdentifierWithinCurlyBracesExclusive'
-              properties:
-                elementErrorClassAttribute: is-invalid
-                elementClassAttribute: 'form-check-input'
-                containerClassAttribute: ''
-                labelClassAttribute: 'form-check-label'
-
-          validatorsDefinition:
-            Captcha:
-              implementationClassName: 'WapplerSystems\WsBulletinboard\Validation\Validator\CaptchaValidator'
 

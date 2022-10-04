@@ -5,35 +5,17 @@
 		<header/>
 		<body>
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry">
-				<target>Gästebuch</target>
-			</trans-unit>
-			<trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
-				<target>Name</target>
-			</trans-unit>
-			<trans-unit id="tx_wsbulletinboard_domain_model_entry.city">
-				<target>Stadt</target>
-			</trans-unit>
-			<trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
-				<target>Email</target>
-			</trans-unit>
-			<trans-unit id="tx_wsbulletinboard_domain_model_entry.website">
-				<target>Meine Website</target>
+				<target>Schwarzes Brett</target>
 			</trans-unit>
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.message">
 				<target>Botschaft</target>
 			</trans-unit>
-			<trans-unit id="tx_wsbulletinboard_domain_model_entry.captcha">
-				<target>Captcha</target>
-			</trans-unit>
-			<trans-unit id="tx_wsbulletinboard_domain_model_entry.terms">
-				<target>AGB akzeptiert</target>
-			</trans-unit>
 
 			<trans-unit id="wsbulletinboard_form">
-				<target>Gästebuch: Formular</target>
+				<target>Schwarzes Brett: Formular</target>
 			</trans-unit>
 			<trans-unit id="wsbulletinboard_list">
-				<target>Gästebuch: Liste</target>
+				<target>Schwarzes Brett: Liste</target>
 			</trans-unit>
 
 
@@ -59,8 +41,8 @@
 				<target>E-Mail Betreff</target>
 			</trans-unit>
 			<trans-unit id="flexform.automaticApproval">
-				<source>Automatic approval (not recommended)</source>
-				<target>Automatische Bestätigung (nicht empfohlen)</target>
+				<source>Automatic approval</source>
+				<target>Automatische Bestätigung</target>
 			</trans-unit>
 			<trans-unit id="flexform.itemsPerPage">
 				<target>Anzahl der Einträge pro Seite anzeigen</target>
@@ -96,26 +78,6 @@
 				<source>The city field is mandatory</source>
 				<target>Stadt-Feld ist ein Pflichtfeld</target>
 			</trans-unit>
-			<trans-unit id="flexform.fields.website.enable">
-				<source>Enable the website field</source>
-				<target>Website-Feld aktivieren</target>
-			</trans-unit>
-			<trans-unit id="flexform.fields.website.mandatory">
-				<source>The website field is mandatory</source>
-				<target>Website-Feld ist ein Pflichtfeld</target>
-			</trans-unit>
-			<trans-unit id="flexform.fields.captcha.enable">
-				<source>Enable the captcha field</source>
-				<target>Captcha-Feld aktivieren</target>
-			</trans-unit>
-			<trans-unit id="flexform.fields.privacyPolicy.enable">
-				<source>Enable the privacy policy field</source>
-				<target>Datenschutz-Feld aktivieren</target>
-			</trans-unit>
-			<trans-unit id="flexform.fields.privacyPolicy.page">
-				<source>Privacy policy page</source>
-				<target>Datenschutz-Seite</target>
-			</trans-unit>
 			<trans-unit id="flexform.fields.message.maxCharacters">
 				<source>Maximum characters in message field</source>
 				<target>Maximale Anzahl von Zeichen im Nachricht-Feld</target>
@@ -145,8 +107,8 @@
 
 
 			<trans-unit id="tsconfig.wizard.WsBulletinboardForm.title">
-				<source>WapplerSystems Bulletinboard - Form</source>
-				<target>WapplerSystems Gästebuch - Formular</target>
+				<source>WapplerSystems bulletin board - Form</source>
+				<target>WapplerSystems schwarzes Brett - Formular</target>
 			</trans-unit>
 			<trans-unit id="tsconfig.wizard.WsBulletinboardForm.description">
 				<source>This allows the visitor to write a new entry.</source>
@@ -154,8 +116,8 @@
 			</trans-unit>
 
 			<trans-unit id="tsconfig.wizard.WsBulletinboardList.title">
-				<source>WapplerSystems Bulletinboard - List</source>
-				<target>WapplerSystems Gästebuch - Liste</target>
+				<source>WapplerSystems Bulletin board - List</source>
+				<target>WapplerSystems schwarzes Brett - Liste</target>
 			</trans-unit>
 			<trans-unit id="tsconfig.wizard.WsBulletinboardList.description">
 				<source>This outputs the entries.</source>

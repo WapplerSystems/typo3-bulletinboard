@@ -29,7 +29,7 @@
 
 			<!-- Mail template -->
 			<trans-unit id="mail.title">
-				<target>Neues Gästefeedback</target>
+				<target>Neuer Eintrag</target>
 			</trans-unit>
 			<trans-unit id="mail.hello">
 				<target>Hallo</target>
@@ -62,13 +62,6 @@
 				<target>Es wurden keine Einträge gefunden.</target>
 			</trans-unit>
 
-			<!-- Controller msg -->
-			<trans-unit id="controller.checkcaptcha.msg">
-				<target>Bitte überprüfen Sie das Captcha-Formular.</target>
-			</trans-unit>
-			<trans-unit id="controller.wrongcaptcha.msg">
-				<target>Sorry, falsches Captcha!</target>
-			</trans-unit>
 			<trans-unit id="controller.thanks.msg">
 				<target>Ihr Feedback wurde erfolgreich gespeichert! Vielen Dank!</target>
 			</trans-unit>
@@ -79,10 +72,10 @@
 
 			<!-- Latest file -->
 			<trans-unit id="latest.heading">
-				<target>Bulletinboard</target>
+				<target>Bulletin board</target>
 			</trans-unit>
 			<trans-unit id="latest.visit">
-				<target>Gästebuch besuchen</target>
+				<target>Schwarzes Brett besuchen</target>
 			</trans-unit>
 			<!-- Latest file -->
 
@@ -100,7 +93,7 @@
 
 			<!-- New file -->
 			<trans-unit id="new.heading">
-				<target>Neues Gästebuch</target>
+				<target>Neues schwarzes Brett</target>
 			</trans-unit>
 			<trans-unit id="new.create">
 				<target>Feedback schicken</target>
@@ -109,7 +102,7 @@
 
 			<!-- Show File -->
 			<trans-unit id="show.heading">
-				<target>Einzelansicht für Gästebuch</target>
+				<target>Einzelansicht für schwarzes Brett</target>
 			</trans-unit>
 			<trans-unit id="show.back">
 				<target>Zurück zur Liste</target>
@@ -171,13 +164,13 @@
 			</trans-unit>
 
 			<trans-unit id="wsbulletinboard_messages">
-				<target>Gästebuch: Nachrichten</target>
+				<target>Schwarzes Brett: Nachrichten</target>
 			</trans-unit>
 			<trans-unit id="wsbulletinboard_detailpage">
-				<target>Gästebuch: Detail anzeigen</target>
+				<target>Schwarzes Brett: Detail anzeigen</target>
 			</trans-unit>
 			<trans-unit id="wsbulletinboard_latestmessages">
-				<target>Gästebuch: Neueste Nachrichten</target>
+				<target>Schwarzes Brett: Neueste Nachrichten</target>
 			</trans-unit>
 
 			<trans-unit id="require">
@@ -185,25 +178,16 @@
 			</trans-unit>
 
 			<trans-unit id="element.fieldsetEntry.properties.label">
-				<target>Neuer Gästebucheintrag</target>
+				<target>Neuer Eintrag</target>
 			</trans-unit>
-			<trans-unit id="element.name.properties.label">
-				<target>Name</target>
+			<trans-unit id="element.title.properties.label">
+				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="element.email.properties.label">
-				<target>E-Mail</target>
-			</trans-unit>
-			<trans-unit id="element.website.properties.label">
-				<target>Website</target>
-			</trans-unit>
-			<trans-unit id="element.city.properties.label">
-				<target>Stadt</target>
+			<trans-unit id="element.images.properties.label">
+				<target>Bilder</target>
 			</trans-unit>
 			<trans-unit id="element.message.properties.label">
 				<target>Nachricht</target>
-			</trans-unit>
-			<trans-unit id="element.captcha.properties.label">
-				<target>Captcha</target>
 			</trans-unit>
 			<trans-unit id="element.privacyPolicyCheckbox.properties.label">
 				<target><![CDATA[Ich habe die <a href="%s">Datenschutzbestimmungen</a> gelesen und akzeptiere sie.]]></target>
@@ -224,19 +208,13 @@
 			</trans-unit>
 
 
-			<trans-unit id="validator.captcha.notvalid" resname="validator.captcha.notvalid">
-				<source>The entered captcha is not correct.</source>
-				<target>Der eingegebene Text ist nicht korrekt.</target>
-			</trans-unit>
-
-
 			<trans-unit id="msg.entryDone">
 				<source>It may take a while until your bulletinboard entry appears in the list.</source>
-				<target>Es kann etwas dauern, bis Ihr Gästebucheintrag in der Liste erscheint.</target>
+				<target>Es kann etwas dauern, bis Ihr Eintrag in der Liste erscheint.</target>
 			</trans-unit>
 			<trans-unit id="hdl.entryDone">
 				<source>Thank you for the bulletinboard entry</source>
-				<target>Danke für den Gästebucheintrag</target>
+				<target>Danke für den Eintrag</target>
 			</trans-unit>
 
 			<trans-unit id="msg.entryNotFound">

@@ -29,7 +29,7 @@
 
 			<!-- Mail template -->
 			<trans-unit id="mail.title">
-				<source>New Guest feedback</source>
+				<source>New entry</source>
 			</trans-unit>
 			<trans-unit id="mail.hello">
 				<source>Hello</source>
@@ -92,14 +92,6 @@
 			</trans-unit>
 			<trans-unit id="paginate_previous" xml:space="preserve">
 				<source>Previous</source>
-			</trans-unit>
-
-
-			<trans-unit id="validator.captcha.notvalid">
-				<source>The entered captcha is not correct.</source>
-			</trans-unit>
-			<trans-unit id="formEditor.elements.captcha">
-				<source>Captcha</source>
 			</trans-unit>
 
 
