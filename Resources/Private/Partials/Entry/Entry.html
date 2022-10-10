@@ -1,19 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+
 <f:section name="Default">
     <div class="card mb-4">
         <div class="card-header">
-            <f:if condition="{entry.website}">
-                <f:then>
-                    <a class="float-left" target="_blank" href="{entry.website}">
-                        <f:render section="Header" arguments="{_all}"/>
-                    </a>
-                </f:then>
-                <f:else>
-                    <f:render section="Header" arguments="{_all}"/>
-                </f:else>
-            </f:if>
 
             <f:if condition="{entry.tstamp}">
-                <small class="text-muted float-right">
+                <small class="text-muted">
                     <f:format.date format="{f:translate(key:'dateTimeFormat')}">{entry.tstamp}</f:format.date>
                 </small>
             </f:if>
@@ -21,24 +14,17 @@
         </div>
 
         <div class="card-body">
+
+            <f:if condition="{entry.image}">
+                <ce:link.clickEnlarge image="{entry.image.originalResource}" configuration="{settings.media.popup}">
+                    <f:image image="{entry.image}" maxWidth="400" class="img-fluid" />
+                </ce:link.clickEnlarge>
+            </f:if>
+
             <f:format.html>{entry.message -> f:format.nl2br()}</f:format.html>
         </div>
     </div>
 </f:section>
 
-<f:section name="Header">
-    <strong>
-        <f:if condition="{entry.city}">
-            <f:then>
-                <f:translate key="xFromY" arguments="{0:entry.name, 1:entry.city}"/>
-            </f:then>
-            <f:else>
-                {entry.name}
-            </f:else>
-        </f:if>
-    </strong>
-</f:section>
 
-<f:section name="Datetime">
-
-</f:section>
+</html>

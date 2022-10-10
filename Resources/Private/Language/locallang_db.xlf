@@ -15,14 +15,17 @@
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
 				<source>Email</source>
 			</trans-unit>
-			<trans-unit id="tx_wsbulletinboard_domain_model_entry.website">
-				<source>Website</source>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.fe_user">
+				<source>Frontend User</source>
 			</trans-unit>
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.message">
 				<source>Message</source>
 			</trans-unit>
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.terms">
 				<source>Terms accepted</source>
+			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.image">
+				<source>Image</source>
 			</trans-unit>
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.action_key">
 				<source>Action key</source>
@@ -112,6 +115,11 @@
 			</trans-unit>
 			<trans-unit id="flexform.storagePid">
 				<source>Storage Page ID</source>
+			</trans-unit>
+
+
+			<trans-unit id="addImage">
+				<source>Add image</source>
 			</trans-unit>
 		</body>
 	</file>

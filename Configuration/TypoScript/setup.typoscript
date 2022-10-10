@@ -27,6 +27,8 @@ plugin.tx_wsbulletinboard {
       maximumNumberOfLinks = 3
     }
 
+    media.popup < lib.contentElement.settings.media.popup
+
   }
 
 }

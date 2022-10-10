@@ -2,7 +2,7 @@
 
 return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry',
+        'title' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -23,10 +23,10 @@ return [
         'iconfile' => 'EXT:ws_bulletinboard/Resources/Public/Icons/tx_wsbulletinboard_domain_model_entry.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, fe_user, message, action_key',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, fe_user, image, message, action_key',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tstamp, title, fe_user, message, action_key, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tstamp, title, fe_user, image, message, action_key, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -148,17 +148,11 @@ return [
             'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
-                'allowed' => 'pages',
+                'allowed' => 'fe_users',
                 'maxitems' => 1,
                 'minitems' => 0,
                 'size' => 1,
                 'default' => 0,
-                'suggestOptions' => [
-                    'default' => [
-                        'additionalSearchFields' => 'nav_title, alias, url',
-                        'addWhere' => 'AND pages.doktype = 1'
-                    ]
-                ]
             ]
         ],
         'action_key' => [
@@ -167,15 +161,29 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
+                'readOnly' => true
             ],
         ],
         'message' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.message',
             'config' => [
-                     'type' => 'text',
-                     'enableRichtext' => true,
-             ],
+                'type' => 'text',
+                'enableRichtext' => true,
+            ],
         ],
+        'image' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.image',
+            'config' => [
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'sys_file',
+                'maxitems' => 1,
+                'minitems' => 0,
+                'size' => 1,
+                'default' => 0,
+            ]
+        ]
     ],
 ];

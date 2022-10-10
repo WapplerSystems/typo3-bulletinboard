@@ -8,7 +8,7 @@
 				<target>Schwarzes Brett</target>
 			</trans-unit>
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.message">
-				<target>Botschaft</target>
+				<target>Nachricht</target>
 			</trans-unit>
 
 			<trans-unit id="wsbulletinboard_form">

@@ -5,11 +5,9 @@ namespace WapplerSystems\WsBulletinboard\Form\Factory;
 
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Crypto\Random;
-use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MailUtility;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
-use TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator;
 use TYPO3\CMS\Form\Domain\Configuration\ConfigurationService;
@@ -76,7 +74,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
                     'value' => $actionKey,
                 ],
                 'hidden' => [
-                    'value' => ($configuration['automaticApproval'] !== '1'),
+                    'value' => ($configuration['automaticApproval'] === '1') ? 0 : 1,
                 ],
                 'fe_user' => [
                     'value' => $context->getPropertyFromAspect('frontend.user', 'id'),
@@ -89,6 +87,9 @@ class BulletinboardFormFactory extends AbstractFormFactory
                 ],
                 'name' => [
                     'mapOnDatabaseColumn' => 'name',
+                ],
+                'image' => [
+                    'mapOnDatabaseColumn' => 'image',
                 ],
                 'message' => [
                     'mapOnDatabaseColumn' => 'message',
@@ -188,8 +189,8 @@ class BulletinboardFormFactory extends AbstractFormFactory
         $element->addValidator(new StringLengthValidator(['maximum' => 500]));
         $element->addValidator(new NotEmptyValidator());
 
-        $element = $fieldset->createElement('images', 'ImageUpload');
-        $element->setLabel('Images');
+        $element = $fieldset->createElement('image', 'ImageUpload');
+        $element->setLabel('Image');
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('message', 'Textarea');
