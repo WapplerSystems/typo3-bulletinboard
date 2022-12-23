@@ -3,6 +3,7 @@ namespace WapplerSystems\WsBulletinboard\Domain\Model;
 
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  *
@@ -28,9 +29,9 @@ class Entry extends AbstractEntity
 
 
     /**
-     * @var ?File
+     * @var ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
-    protected $image = null;
+    protected $images = null;
 
     /**
      * tstamp
@@ -92,11 +93,11 @@ class Entry extends AbstractEntity
     }
 
     /**
-     * @return File|null
+     * @return ObjectStorage
      */
-    public function getImage(): ?File
+    public function getImages(): ObjectStorage
     {
-        return $this->image;
+        return $this->images;
     }
 
 

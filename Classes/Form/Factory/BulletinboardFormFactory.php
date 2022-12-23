@@ -79,6 +79,9 @@ class BulletinboardFormFactory extends AbstractFormFactory
                 'fe_user' => [
                     'value' => $context->getPropertyFromAspect('frontend.user', 'id'),
                 ],
+                'images' => [
+                    'value' => 0,
+                ],
             ],
 
             'elements' => [
@@ -88,14 +91,23 @@ class BulletinboardFormFactory extends AbstractFormFactory
                 'name' => [
                     'mapOnDatabaseColumn' => 'name',
                 ],
-                'image' => [
-                    'mapOnDatabaseColumn' => 'image',
-                ],
                 'message' => [
                     'mapOnDatabaseColumn' => 'message',
                 ],
             ]
         ]);
+
+        $moveUploadsFinisher = $formDefinition->createFinisher('AttachUploadsToObject');
+        $moveUploadsFinisher->setOptions([
+            'elements' => [
+                'images' => [
+                    'table' => 'tx_wsbulletinboard_domain_model_entry',
+                    'mapOnDatabaseColumn' => 'images',
+                    'lastInsertId' => true,
+                ],
+            ]
+        ]);
+
 
         $recipients = [];
         $recipientsFlexform = $configuration['verification']['recipients'];
@@ -149,6 +161,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
             'senderName' => $defaultFrom[array_key_first($defaultFrom)],
             'senderAddress' => array_key_first($defaultFrom),
             'useFluidEmail' => true,
+            'attachUploads' => false,
             'templateName' => 'Notification',
             'templateRootPaths' => [
                 50 => 'EXT:ws_bulletinboard/Resources/Private/Templates/Email/',
@@ -189,8 +202,11 @@ class BulletinboardFormFactory extends AbstractFormFactory
         $element->addValidator(new StringLengthValidator(['maximum' => 500]));
         $element->addValidator(new NotEmptyValidator());
 
-        $element = $fieldset->createElement('image', 'ImageUpload');
-        $element->setLabel('Image');
+        $element = $fieldset->createElement('images', 'FileUpload');
+        $element->setLabel('Images');
+        $element->setProperty('multiple',true);
+        $element->setProperty('allowedMimeTypes',['image/jpg','image/jpeg']);
+        $element->setProperty('saveToFileMount','1:/bulletinboard/');
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('message', 'Textarea');
@@ -199,7 +215,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
         $element->setProperty('elementClassAttribute', 'form-control-bstextcounter');
         $element->setProperty('fluidAdditionalAttributes', ['data-maximum-chars' => (int)$configuration['fields']['message']['maxCharacters']]);
         $element->addValidator(new NotEmptyValidator());
-        $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => (int)$configuration['fields']['message']['maxCharacters']]));
+        //$element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => (int)$configuration['fields']['message']['maxCharacters']]));
 
 
 

@@ -9,7 +9,7 @@ CREATE TABLE tx_wsbulletinboard_domain_model_entry
 
 	title            varchar(500)        DEFAULT ''  NOT NULL,
 	fe_user          int(11) unsigned    DEFAULT '0' NOT NULL,
-	image            int(11) unsigned    DEFAULT '0' NOT NULL,
+	images           int(11) unsigned    DEFAULT '0' NOT NULL,
 	email            varchar(255)        DEFAULT ''  NOT NULL,
 	remote_addr      varchar(255)        DEFAULT ''  NOT NULL,
 	message          text                            NOT NULL,

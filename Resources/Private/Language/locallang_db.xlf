@@ -24,8 +24,8 @@
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.terms">
 				<source>Terms accepted</source>
 			</trans-unit>
-			<trans-unit id="tx_wsbulletinboard_domain_model_entry.image">
-				<source>Image</source>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.images">
+				<source>Images</source>
 			</trans-unit>
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.action_key">
 				<source>Action key</source>

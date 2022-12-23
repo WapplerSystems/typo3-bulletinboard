@@ -22,10 +22,13 @@
 
         <div class="card-body">
 
-            <f:if condition="{entry.image}">
-                <ce:link.clickEnlarge image="{entry.image.originalResource}" configuration="{settings.media.popup}">
-                    <f:image image="{entry.image}" maxWidth="400" class="img-fluid" />
-                </ce:link.clickEnlarge>
+            <f:if condition="{entry.images}">
+                <f:for each="{entry.images}" as="image">
+                    <ce:link.clickEnlarge image="{image.originalResource}" configuration="{settings.media.popup}">
+                        <f:image image="{image}" maxWidth="400" class="img-fluid" />
+                    </ce:link.clickEnlarge>
+                </f:for>
+
             </f:if>
 
             <f:format.html>{entry.message -> f:format.nl2br()}</f:format.html>

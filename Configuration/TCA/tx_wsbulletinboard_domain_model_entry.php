@@ -23,10 +23,10 @@ return [
         'iconfile' => 'EXT:ws_bulletinboard/Resources/Public/Icons/tx_wsbulletinboard_domain_model_entry.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, fe_user, image, message, action_key',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, fe_user, images, message, action_key',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tstamp, title, fe_user, image, message, action_key, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tstamp, title, fe_user, images, message, action_key, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],
@@ -172,18 +172,68 @@ return [
                 'enableRichtext' => true,
             ],
         ],
-        'image' => [
+        'images' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.image',
+            'label' => 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tx_wsbulletinboard_domain_model_entry.images',
             'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'allowed' => 'sys_file',
-                'maxitems' => 1,
-                'minitems' => 0,
-                'size' => 1,
-                'default' => 0,
-            ]
+                'type' => 'inline',
+                'foreign_table' => 'sys_file_reference',
+                'foreign_field' => 'uid_foreign',
+                'foreign_sortby' => 'sorting_foreign',
+                'foreign_table_field' => 'tablenames',
+                'foreign_match_fields' => [
+                    'fieldname' => 'images',
+                ],
+                'foreign_label' => 'uid_local',
+                'foreign_selector' => 'uid_local',
+                'overrideChildTca' => [
+                    'columns' => [
+                        'uid_local' => [
+                            'config' => [
+                                'appearance' => [
+                                    'elementBrowserType' => 'file',
+                                    'elementBrowserAllowed' => 'jpg,jpeg',
+                                ],
+                            ],
+                        ],
+                        'crop' => [
+                            'description' => 'field description',
+                        ],
+                    ],
+                    'types' => [
+                        2 => [
+                            'showitem' => '
+                                --palette--;;imageoverlayPalette,
+                                --palette--;;filePalette',
+                        ],
+                    ],
+                ],
+                'filter' => [
+                    [
+                        'userFunc' => 'TYPO3\\CMS\\Core\\Resource\\Filter\\FileExtensionFilter->filterInlineChildren',
+                        'parameters' => [
+                            'allowedFileExtensions' => 'jpg,jpeg',
+                            'disallowedFileExtensions' => '',
+                        ],
+                    ],
+                ],
+                'appearance' => [
+                    'useSortable' => true,
+                    'headerThumbnail' => [
+                        'field' => 'uid_local',
+                        'height' => '45m',
+                    ],
+                    'enabledControls' => [
+                        'info' => true,
+                        'new' => false,
+                        'dragdrop' => true,
+                        'sort' => false,
+                        'hide' => true,
+                        'delete' => true,
+                    ],
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+                ],
+            ],
         ]
     ],
 ];

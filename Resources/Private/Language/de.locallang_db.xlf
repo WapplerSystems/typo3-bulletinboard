@@ -10,6 +10,9 @@
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.message">
 				<target>Nachricht</target>
 			</trans-unit>
+			<trans-unit id="tx_wsbulletinboard_domain_model_entry.images">
+				<target>Bilder</target>
+			</trans-unit>
 
 			<trans-unit id="wsbulletinboard_form">
 				<target>Schwarzes Brett: Formular</target>
