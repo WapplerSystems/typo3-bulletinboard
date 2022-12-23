@@ -215,7 +215,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
         $element->setProperty('elementClassAttribute', 'form-control-bstextcounter');
         $element->setProperty('fluidAdditionalAttributes', ['data-maximum-chars' => (int)$configuration['fields']['message']['maxCharacters']]);
         $element->addValidator(new NotEmptyValidator());
-        //$element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => (int)$configuration['fields']['message']['maxCharacters']]));
+        $element->addValidator(new StringLengthValidator(['minimum' => 50, 'maximum' => (int)$configuration['fields']['message']['maxCharacters']]));
 
 
 
