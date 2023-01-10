@@ -1,5 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      xmlns:wb="http://typo3.org/ns/WapplerSystems/WsBulletinboard/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 
 <f:section name="Default">
     <div class="card mb-4">
@@ -13,10 +15,25 @@
 
             <div class="contact">
 
-                {entry.feUser.name}
+                <f:if condition="{entry.feUser.firstName} || {entry.feUser.lastName}">
+                    <f:then>
+                        {entry.feUser.firstName} {entry.feUser.lastName}
+                    </f:then>
+                    <f:else>
+                        {entry.feUser.name}
+                    </f:else>
+                </f:if>
+
                 <f:link.email email="{entry.feUser.email}">{entry.feUser.email}</f:link.email>
 
             </div>
+
+            <f:security.ifAuthenticated>
+                <wb:userOwnsEntry entry="{entry}">
+                    <f:link.action action="deleteEntry" arguments="{entry:entry}">{f:translate(key: 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang.xlf:btn.delete')}</f:link.action>
+                </wb:userOwnsEntry>
+
+            </f:security.ifAuthenticated>
 
         </div>
 

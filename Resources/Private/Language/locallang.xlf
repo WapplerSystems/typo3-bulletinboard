@@ -112,6 +112,18 @@
 			<trans-unit id="hdl.entryNotFound">
 				<source>The entry was unfortunately not found</source>
 			</trans-unit>
+			<trans-unit id="msg.notOwner">
+				<source>You are not the owner of this entry.</source>
+			</trans-unit>
+			<trans-unit id="title.error">
+				<source>Error</source>
+			</trans-unit>
+			<trans-unit id="msg.successfulDeleted">
+				<source>The entry was deleted successfully.</source>
+			</trans-unit>
+			<trans-unit id="title.success">
+				<source>Success</source>
+			</trans-unit>
 
 
 			<trans-unit id="hdl.entryConfirmed">
@@ -128,6 +140,9 @@
 			</trans-unit>
 			<trans-unit id="btn.decline">
 				<source>Decline</source>
+			</trans-unit>
+			<trans-unit id="btn.delete">
+				<source>Delete</source>
 			</trans-unit>
 
 		</body>

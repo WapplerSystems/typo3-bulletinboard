@@ -6,3 +6,9 @@ services:
 
   WapplerSystems\WsBulletinboard\:
     resource: '../Classes/*'
+
+  WapplerSystems\WsBulletinboard\Command\RemoveOldEntriesCommand:
+    tags:
+      - name: 'console.command'
+        command: 'wsbulletinboard:removeoldentries'
+        description: ''

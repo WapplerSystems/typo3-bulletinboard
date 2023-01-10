@@ -14,9 +14,10 @@ ExtensionUtility::configurePlugin(
     'ws_bulletinboard',
     'List',
     [
-        BulletinboardController::class => 'list',
+        BulletinboardController::class => 'list,deleteEntry',
     ],
     [
+        BulletinboardController::class => 'deleteEntry',
     ]
 );
 
