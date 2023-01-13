@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_bulletinboard" target-language="he">
+    <header/>
+    <body>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
+        <source>Name</source>
+        <target state="needs-translation">Name</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.city">
+        <source>City</source>
+        <target state="needs-translation">City</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
+        <source>Email</source>
+        <target state="needs-translation">Email</target>
+      </trans-unit>
+      <trans-unit id="website">
+        <source>Website</source>
+        <target state="needs-translation">Website</target>
+      </trans-unit>
+      <trans-unit id="xFromY" xml:space="preserve">
+				<source>%1$s from %2$s</source>
+			<target state="needs-translation">%1$s from %2$s</target></trans-unit>
+      <trans-unit id="dateTimeText" xml:space="preserve">
+				<source>%1$s at %2$s</source>
+			<target state="needs-translation">%1$s at %2$s</target></trans-unit>
+      <trans-unit id="dateTimeFormat" xml:space="preserve">
+				<source>%m/%d/%Y at %H:%M</source>
+			<target state="needs-translation">%m/%d/%Y at %H:%M</target></trans-unit>
+      <!-- Mail template -->
+      <trans-unit id="mail.title">
+        <source>New entry</source>
+        <target state="needs-translation">New entry</target>
+      </trans-unit>
+      <trans-unit id="mail.hello">
+        <source>Hello</source>
+        <target state="needs-translation">Hello</target>
+      </trans-unit>
+      <trans-unit id="mail.msg">
+        <source>Following is new feedback information</source>
+        <target state="needs-translation">Following is new feedback information</target>
+      </trans-unit>
+      <trans-unit id="mail.Name">
+        <source>Name</source>
+        <target state="needs-translation">Name</target>
+      </trans-unit>
+      <trans-unit id="mail.City">
+        <source>City</source>
+        <target state="needs-translation">City</target>
+      </trans-unit>
+      <trans-unit id="mail.Email">
+        <source>Email</source>
+        <target state="needs-translation">Email</target>
+      </trans-unit>
+      <trans-unit id="mail.Website">
+        <source>Website</source>
+        <target state="needs-translation">Website</target>
+      </trans-unit>
+      <trans-unit id="mail.Message">
+        <source>Message</source>
+        <target state="needs-translation">Message</target>
+      </trans-unit>
+      <trans-unit id="mail.regards">
+        <source>Regards.</source>
+        <target state="needs-translation">Regards.</target>
+      </trans-unit>
+      <!-- Mail template -->
+      <trans-unit id="no_records">
+        <source>No entries found.</source>
+        <target state="needs-translation">No entries found.</target>
+      </trans-unit>
+      <!-- Error messages -->
+      <trans-unit id="validator.newWsbulletinboard.name.1221560718">
+        <source>Field name is required.</source>
+        <target state="needs-translation">Field name is required.</target>
+      </trans-unit>
+      <trans-unit id="validator.newWsbulletinboard.email.1221560718">
+        <source>Field email is required.</source>
+        <target state="needs-translation">Field email is required.</target>
+      </trans-unit>
+      <trans-unit id="validator.newWsbulletinboard.email.1221559976">
+        <source>Invalid Email address</source>
+        <target state="needs-translation">Invalid Email address</target>
+      </trans-unit>
+      <!-- Error messages -->
+      <trans-unit id="required">
+        <source>* These fields are required.</source>
+        <target state="needs-translation">* These fields are required.</target>
+      </trans-unit>
+      <trans-unit id="controller.mailfrmt">
+        <source>E-Mail format is not valid.</source>
+        <target state="needs-translation">E-Mail format is not valid.</target>
+      </trans-unit>
+      <!-- Flex form labels -->
+      <trans-unit id="paginate_overall" xml:space="preserve">
+				<source>Page %s of %s.</source>
+			<target state="needs-translation">Page %s of %s.</target></trans-unit>
+      <trans-unit id="paginate_next" xml:space="preserve">
+				<source>Next</source>
+			<target state="needs-translation">Next</target></trans-unit>
+      <trans-unit id="paginate_previous" xml:space="preserve">
+				<source>Previous</source>
+			<target state="needs-translation">Previous</target></trans-unit>
+      <trans-unit id="element.privacyPolicyCheckbox.properties.label">
+        <source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
+        <target state="needs-translation"><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></target>
+      </trans-unit>
+      <trans-unit id="msg.entryDone">
+        <source>It may take a while until your bulletinboard entry appears in the list.</source>
+        <target state="needs-translation">It may take a while until your bulletinboard entry appears in the list.</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryDone">
+        <source>Thank you for the bulletinboard entry</source>
+        <target state="needs-translation">Thank you for the bulletinboard entry</target>
+      </trans-unit>
+      <trans-unit id="msg.entryNotFound">
+        <source>Perhaps this has already been deleted or confirmed.</source>
+        <target state="needs-translation">Perhaps this has already been deleted or confirmed.</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryNotFound">
+        <source>The entry was unfortunately not found</source>
+        <target state="needs-translation">The entry was unfortunately not found</target>
+      </trans-unit>
+      <trans-unit id="msg.notOwner">
+        <source>You are not the owner of this entry.</source>
+        <target state="needs-translation">You are not the owner of this entry.</target>
+      </trans-unit>
+      <trans-unit id="title.error">
+        <source>Error</source>
+        <target state="needs-translation">Error</target>
+      </trans-unit>
+      <trans-unit id="msg.successfulDeleted">
+        <source>The entry was deleted successfully.</source>
+        <target state="needs-translation">The entry was deleted successfully.</target>
+      </trans-unit>
+      <trans-unit id="title.success">
+        <source>Success</source>
+        <target state="needs-translation">Success</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryConfirmed">
+        <source>The entry was confirmed</source>
+        <target state="needs-translation">The entry was confirmed</target>
+      </trans-unit>
+      <trans-unit id="hdl.entryDeclined">
+        <source>The entry was declined</source>
+        <target state="needs-translation">The entry was declined</target>
+      </trans-unit>
+      <trans-unit id="btn.confirm">
+        <source>Confirm</source>
+        <target state="needs-translation">Confirm</target>
+      </trans-unit>
+      <trans-unit id="btn.decline">
+        <source>Decline</source>
+        <target state="needs-translation">Decline</target>
+      </trans-unit>
+      <trans-unit id="btn.delete">
+        <source>Delete</source>
+        <target state="needs-translation">Delete</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
