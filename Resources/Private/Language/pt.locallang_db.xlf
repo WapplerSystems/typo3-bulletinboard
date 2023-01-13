@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_bulletinboard" target-language="pt-PT">
+    <header/>
+    <body>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry">
+        <source>Bulletinboard</source>
+        <target state="needs-translation">Bulletinboard</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
+        <source>Name</source>
+        <target state="needs-translation">Name</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.city">
+        <source>City</source>
+        <target state="needs-translation">City</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
+        <source>Email</source>
+        <target state="needs-translation">Email</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.fe_user">
+        <source>Frontend User</source>
+        <target state="needs-translation">Frontend User</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.message">
+        <source>Message</source>
+        <target state="needs-translation">Message</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.terms">
+        <source>Terms accepted</source>
+        <target state="needs-translation">Terms accepted</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.images">
+        <source>Images</source>
+        <target state="needs-translation">Images</target>
+      </trans-unit>
+      <trans-unit id="tx_wsbulletinboard_domain_model_entry.action_key">
+        <source>Action key</source>
+        <target state="needs-translation">Action key</target>
+      </trans-unit>
+      <trans-unit id="wsbulletinboard_form">
+        <source>Bulletinboard: Form</source>
+        <target state="needs-translation">Bulletinboard: Form</target>
+      </trans-unit>
+      <trans-unit id="wsbulletinboard_list">
+        <source>Bulletinboard: List</source>
+        <target state="needs-translation">Bulletinboard: List</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsBulletinboardForm.title">
+        <source>WapplerSystems Bulletinboard - Form</source>
+        <target state="needs-translation">WapplerSystems Bulletinboard - Form</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsBulletinboardForm.description">
+        <source>This allows the visitor to write a new entry.</source>
+        <target state="needs-translation">This allows the visitor to write a new entry.</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsBulletinboardList.title">
+        <source>WapplerSystems Bulletinboard - List</source>
+        <target state="needs-translation">WapplerSystems Bulletinboard - List</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsBulletinboardList.description">
+        <source>This outputs the entries.</source>
+        <target state="needs-translation">This outputs the entries.</target>
+      </trans-unit>
+      <trans-unit id="flexform.thankyouPageId">
+        <source>"Thank you" page</source>
+        <target state="needs-translation">"Thank you" page</target>
+      </trans-unit>
+      <trans-unit id="flexform.verification.recipients">
+        <source>Recipients for checking the new entries</source>
+        <target state="needs-translation">Recipients for checking the new entries</target>
+      </trans-unit>
+      <trans-unit id="flexform.verification.recipient">
+        <source>Recipient</source>
+        <target state="needs-translation">Recipient</target>
+      </trans-unit>
+      <trans-unit id="flexform.auditor.emailaddress">
+        <source>Email</source>
+        <target state="needs-translation">Email</target>
+      </trans-unit>
+      <trans-unit id="flexform.auditor.name">
+        <source>Name</source>
+        <target state="needs-translation">Name</target>
+      </trans-unit>
+      <trans-unit id="flexform.emailSubject">
+        <source>Email subject</source>
+        <target state="needs-translation">Email subject</target>
+      </trans-unit>
+      <trans-unit id="flexform.itemsPerPage">
+        <source>Show number of entries per page</source>
+        <target state="needs-translation">Show number of entries per page</target>
+      </trans-unit>
+      <trans-unit id="flexform.sorting">
+        <source>Sorting</source>
+        <target state="needs-translation">Sorting</target>
+      </trans-unit>
+      <trans-unit id="flexform.newFirst">
+        <source>Newest first</source>
+        <target state="needs-translation">Newest first</target>
+      </trans-unit>
+      <trans-unit id="flexform.oldFirst">
+        <source>Oldest first</source>
+        <target state="needs-translation">Oldest first</target>
+      </trans-unit>
+      <trans-unit id="flexform.automaticApproval">
+        <source>Automatic approval</source>
+        <target state="needs-translation">Automatic approval</target>
+      </trans-unit>
+      <trans-unit id="flexform.verification.email.senderName">
+        <source>Sender name of verification email</source>
+        <target state="needs-translation">Sender name of verification email</target>
+      </trans-unit>
+      <trans-unit id="flexform.verification.email.senderEmailAddress">
+        <source>Sender email address of verification email</source>
+        <target state="needs-translation">Sender email address of verification email</target>
+      </trans-unit>
+      <trans-unit id="flexforms_tab.general">
+        <source>General settings</source>
+        <target state="needs-translation">General settings</target>
+      </trans-unit>
+      <trans-unit id="flexforms_tab.fields">
+        <source>Form fields</source>
+        <target state="needs-translation">Form fields</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.message.maxCharacters">
+        <source>Maximum characters in message field</source>
+        <target state="needs-translation">Maximum characters in message field</target>
+      </trans-unit>
+      <trans-unit id="flexform.function">
+        <source>Function</source>
+        <target state="needs-translation">Function</target>
+      </trans-unit>
+      <trans-unit id="flexform.function.list">
+        <source>List</source>
+        <target state="needs-translation">List</target>
+      </trans-unit>
+      <trans-unit id="flexform.function.form">
+        <source>Form</source>
+        <target state="needs-translation">Form</target>
+      </trans-unit>
+      <trans-unit id="flexform.storagePid">
+        <source>Storage Page ID</source>
+        <target state="needs-translation">Storage Page ID</target>
+      </trans-unit>
+      <trans-unit id="addImage">
+        <source>Add image</source>
+        <target state="needs-translation">Add image</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
