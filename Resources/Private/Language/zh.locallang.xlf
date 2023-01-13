@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_bulletinboard" target-language="de">
+  <file source-language="en" datatype="plaintext" original="messages" date="2018-06-06T16:21:34Z" product-name="ws_bulletinboard" target-language="zh-CN">
     <header/>
     <body>
       <trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
@@ -21,7 +21,7 @@
       </trans-unit>
       <trans-unit id="xFromY" xml:space="preserve">
 				<source>%1$s from %2$s</source>
-			<target state="translated">%1$s aus %2$s</target></trans-unit>
+			<target state="needs-translation">%1$s from %2$s</target></trans-unit>
       <trans-unit id="dateTimeText" xml:space="preserve">
 				<source>%1$s at %2$s</source>
 			<target state="needs-translation">%1$s at %2$s</target></trans-unit>
@@ -68,7 +68,7 @@
       <!-- Mail template -->
       <trans-unit id="no_records">
         <source>No entries found.</source>
-        <target state="translated">Es wurden keine Einträge gefunden.</target>
+        <target state="needs-translation">No entries found.</target>
       </trans-unit>
       <!-- Error messages -->
       <trans-unit id="validator.newWsbulletinboard.name.1221560718">
@@ -108,19 +108,19 @@
       </trans-unit>
       <trans-unit id="msg.entryDone">
         <source>It may take a while until your bulletinboard entry appears in the list.</source>
-        <target state="translated">Es kann etwas dauern, bis Ihr Eintrag in der Liste erscheint.</target>
+        <target state="needs-translation">It may take a while until your bulletinboard entry appears in the list.</target>
       </trans-unit>
       <trans-unit id="hdl.entryDone">
         <source>Thank you for the bulletinboard entry</source>
-        <target state="translated">Danke für den Eintrag</target>
+        <target state="needs-translation">Thank you for the bulletinboard entry</target>
       </trans-unit>
       <trans-unit id="msg.entryNotFound">
         <source>Perhaps this has already been deleted or confirmed.</source>
-        <target state="translated">Vielleicht wurde dieser bereits gelöscht oder bestätigt.</target>
+        <target state="needs-translation">Perhaps this has already been deleted or confirmed.</target>
       </trans-unit>
       <trans-unit id="hdl.entryNotFound">
         <source>The entry was unfortunately not found</source>
-        <target state="translated">Dieser Eintrag wurde leider nicht gefunden.</target>
+        <target state="needs-translation">The entry was unfortunately not found</target>
       </trans-unit>
       <trans-unit id="msg.notOwner">
         <source>You are not the owner of this entry.</source>
@@ -140,23 +140,23 @@
       </trans-unit>
       <trans-unit id="hdl.entryConfirmed">
         <source>The entry was confirmed</source>
-        <target state="translated">Der Eintrag wurde bestätigt</target>
+        <target state="needs-translation">The entry was confirmed</target>
       </trans-unit>
       <trans-unit id="hdl.entryDeclined">
         <source>The entry was declined</source>
-        <target state="translated">Der Eintrag wurde erfolgreich gelöscht</target>
+        <target state="needs-translation">The entry was declined</target>
       </trans-unit>
       <trans-unit id="btn.confirm">
         <source>Confirm</source>
-        <target state="translated">Bestätigen</target>
+        <target state="needs-translation">Confirm</target>
       </trans-unit>
       <trans-unit id="btn.decline">
         <source>Decline</source>
-        <target state="translated">Ablehnen</target>
+        <target state="needs-translation">Decline</target>
       </trans-unit>
       <trans-unit id="btn.delete">
         <source>Delete</source>
-        <target state="translated">Löschen</target>
+        <target state="needs-translation">Delete</target>
       </trans-unit>
     </body>
   </file>
