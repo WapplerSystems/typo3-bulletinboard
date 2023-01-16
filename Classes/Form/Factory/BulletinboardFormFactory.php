@@ -12,12 +12,16 @@ use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator;
 use TYPO3\CMS\Form\Domain\Configuration\ConfigurationService;
 use TYPO3\CMS\Form\Domain\Factory\AbstractFormFactory;
+use TYPO3\CMS\Form\Domain\Finishers\EmailFinisher;
+use TYPO3\CMS\Form\Domain\Finishers\RedirectFinisher;
+use TYPO3\CMS\Form\Domain\Finishers\SaveToDatabaseFinisher;
 use TYPO3\CMS\Form\Domain\Model\FormDefinition;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GridRow;
 use TYPO3\CMS\Form\Domain\Model\FormElements\Section;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
+use WapplerSystems\FormExtended\Domain\Finishers\AttachUploadsToObjectFinisher;
 use WapplerSystems\WsBulletinboard\Exception\MissingConfigurationException;
 
 class BulletinboardFormFactory extends AbstractFormFactory
@@ -56,6 +60,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
 
         $context = GeneralUtility::makeInstance(Context::class);
 
+        /** @var SaveToDatabaseFinisher $saveToDatabaseFinisher */
         $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
         $saveToDatabaseFinisher->setOptions([
             'table' => 'tx_wsbulletinboard_domain_model_entry',
@@ -97,6 +102,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
             ]
         ]);
 
+        /** @var AttachUploadsToObjectFinisher $moveUploadsFinisher */
         $moveUploadsFinisher = $formDefinition->createFinisher('AttachUploadsToObject');
         $moveUploadsFinisher->setOptions([
             'elements' => [
@@ -154,6 +160,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
             ])
             ->buildFrontendUri();
 
+        /** @var EmailFinisher $emailFinisher */
         $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
         $emailFinisher->setOptions([
             'subject' => $configuration['verification']['email']['subject'],
@@ -173,6 +180,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
         ]);
 
 
+        /** @var RedirectFinisher $redirectFinisher */
         $redirectFinisher = $formDefinition->createFinisher('Redirect');
         $redirectFinisher->setOptions([
             'pageUid' => $configuration['pageUid'],

@@ -34,7 +34,11 @@ class AbstractController extends ActionController implements LoggerAwareInterfac
                 $view->injectSettings($this->settings);
             }
 
-            $errorMessage = "ws_bulletinboard; " . $exception->getCode() . "; " . $exception->getMessage() . "; " . $this->request->getRequestUri();
+            $request = $GLOBALS['TYPO3_REQUEST'];
+            $normalizedParams = $request->getAttribute('normalizedParams');
+            $requestUrl = $normalizedParams->getRequestUrl();
+
+            $errorMessage = "ws_bulletinboard; " . $exception->getCode() . "; " . $exception->getMessage() . "; " . $requestUrl;
             $this->logger->error($errorMessage);
 
             if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']) {

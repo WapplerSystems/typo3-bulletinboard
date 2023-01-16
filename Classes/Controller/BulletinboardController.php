@@ -12,6 +12,7 @@ use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\FrontendConfigurationManager;
+use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
@@ -108,13 +109,12 @@ class BulletinboardController extends AbstractController
         $entry = $entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
-            $this->forward('entryNotFound');
-        } else {
-
-            $entryRepository->remove($entry);
-            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
-            $persistenceManager->persistAll();
+            return new ForwardResponse('entryNotFound');
         }
+
+        $entryRepository->remove($entry);
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+        $persistenceManager->persistAll();
 
         $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
         $cacheManager->flushCachesInGroupByTag('pages', 'ws_bulletinboard');
@@ -128,6 +128,7 @@ class BulletinboardController extends AbstractController
      * @throws StopActionException
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
+     * @throws NoSuchCacheGroupException
      */
     public function confirmAction(string $action_key): ResponseInterface
     {
@@ -135,13 +136,12 @@ class BulletinboardController extends AbstractController
         $entry = $entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
-            $this->forward('entryNotFound');
-        } else {
-            $entry->setHidden(0);
-            $entryRepository->update($entry);
-            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
-            $persistenceManager->persistAll();
+            return new ForwardResponse('entryNotFound');
         }
+        $entry->setHidden(0);
+        $entryRepository->update($entry);
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+        $persistenceManager->persistAll();
 
         $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
         $cacheManager->flushCachesInGroupByTag('pages', 'ws_bulletinboard');
