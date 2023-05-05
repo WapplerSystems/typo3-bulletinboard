@@ -116,6 +116,9 @@
 			<trans-unit id="flexform.storagePid">
 				<source>Storage Page ID</source>
 			</trans-unit>
+			<trans-unit id="flexform.storageFolder">
+				<source>Storage folder for the uploads</source>
+			</trans-unit>
 
 
 			<trans-unit id="addImage">

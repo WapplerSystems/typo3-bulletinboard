@@ -54,6 +54,9 @@ class BulletinboardFormFactory extends AbstractFormFactory
         if (empty($configuration['frameworkConfiguration']['persistence']['storagePid'])) {
             throw new MissingConfigurationException('No storagePid set', 1627843908);
         }
+        if (($configuration['storageFolder'] ?? '') === '') {
+            throw new MissingConfigurationException('No storage folder set', 1627843909);
+        }
 
         $actionKey = GeneralUtility::makeInstance(Random::class)->generateRandomHexString(30);
 
@@ -214,7 +217,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
         $element->setLabel('Images');
         $element->setProperty('multiple',true);
         $element->setProperty('allowedMimeTypes',['image/jpg','image/jpeg']);
-        $element->setProperty('saveToFileMount','1:/bulletinboard/');
+        $element->setProperty('saveToFileMount',$configuration['storageFolder']);
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('message', 'Textarea');

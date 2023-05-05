@@ -99,6 +99,10 @@
 				<source>Storage Page ID</source>
 				<target>Ordner zur Speicherung der Einträge</target>
 			</trans-unit>
+			<trans-unit id="flexform.storageFolder">
+				<source>Storage folder for the uploads</source>
+				<target>Datei-Ordner für die Speicherung der Uploads</target>
+			</trans-unit>
 			<trans-unit id="flexform.verification.recipients">
 				<source>Recipients for checking the new entries</source>
 				<target>Die Empfänger zur Prüfung der neuen Einträge</target>

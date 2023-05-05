@@ -92,6 +92,18 @@
                             </config>
                         </TCEforms>
                     </persistence.storagePid>
+                    <settings.storageFolder>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.storageFolder</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>folder</internal_type>
+                                <size>1</size>
+                                <maxitems>1</maxitems>
+                                <minitems>1</minitems>
+                            </config>
+                        </TCEforms>
+                    </settings.storageFolder>
                 </el>
             </ROOT>
         </sDEF>
