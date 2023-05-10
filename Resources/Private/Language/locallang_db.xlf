@@ -102,6 +102,9 @@
 			<trans-unit id="flexform.fields.message.maxCharacters">
 				<source>Maximum characters in message field</source>
 			</trans-unit>
+			<trans-unit id="flexform.fields.message.minCharacters">
+				<source>Minimum characters in message field</source>
+			</trans-unit>
 
 
 			<trans-unit id="flexform.function">

@@ -129,6 +129,18 @@
                             </config>
                         </TCEforms>
                     </settings.fields.message.maxCharacters>
+                    <settings.fields.message.minCharacters>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.fields.message.minCharacters</label>
+                            <config>
+                                <type>input</type>
+                                <eval>int</eval>
+                                <min>0</min>
+                                <max>65535</max>
+                                <default>50</default>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.message.minCharacters>
                 </el>
             </ROOT>
         </fields>

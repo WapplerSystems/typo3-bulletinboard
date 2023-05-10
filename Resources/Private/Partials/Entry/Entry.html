@@ -7,6 +7,8 @@
     <div class="card mb-4">
         <div class="card-header">
 
+            <h3>{entry.title}</h3>
+
             <f:if condition="{entry.tstamp}">
                 <small class="text-muted">
                     <f:format.date format="{f:translate(key:'dateTimeFormat')}">{entry.tstamp}</f:format.date>

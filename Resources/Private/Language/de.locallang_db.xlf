@@ -85,6 +85,10 @@
 				<source>Maximum characters in message field</source>
 				<target>Maximale Anzahl von Zeichen im Nachricht-Feld</target>
 			</trans-unit>
+			<trans-unit id="flexform.fields.message.minCharacters">
+				<source>Minimum characters in message field</source>
+				<target>Minimale Anzahl von Zeichen im Nachricht-Feld</target>
+			</trans-unit>
 
 			<trans-unit id="flexform.function">
 				<target>Funktion</target>
