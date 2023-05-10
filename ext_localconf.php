@@ -2,11 +2,9 @@
 
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 use TYPO3\CMS\Core\Imaging\IconRegistry;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 use WapplerSystems\WsBulletinboard\Controller\BulletinboardController;
-use WapplerSystems\WsBulletinboard\Hooks\FormElementCaptchaHook;
 
 defined('TYPO3_MODE') or die();
 
@@ -18,6 +16,16 @@ ExtensionUtility::configurePlugin(
     ],
     [
         BulletinboardController::class => 'deleteEntry',
+    ]
+);
+
+ExtensionUtility::configurePlugin(
+    'ws_bulletinboard',
+    'Latest',
+    [
+        BulletinboardController::class => 'latest',
+    ],
+    [
     ]
 );
 

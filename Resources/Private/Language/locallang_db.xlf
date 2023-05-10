@@ -32,10 +32,13 @@
 			</trans-unit>
 
 			<trans-unit id="wsbulletinboard_form">
-				<source>Bulletinboard: Form</source>
+				<source>Bulletin board: Form</source>
 			</trans-unit>
 			<trans-unit id="wsbulletinboard_list">
-				<source>Bulletinboard: List</source>
+				<source>Bulletin board: List</source>
+			</trans-unit>
+			<trans-unit id="wsbulletinboard_latest">
+				<source>Bulletin board: Latest</source>
 			</trans-unit>
 
 
@@ -51,6 +54,13 @@
 			</trans-unit>
 			<trans-unit id="tsconfig.wizard.WsBulletinboardList.description">
 				<source>This outputs the entries.</source>
+			</trans-unit>
+
+			<trans-unit id="tsconfig.wizard.WsBulletinboardLatest.title">
+				<source>WapplerSystems Bulletinboard - Latest</source>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsBulletinboardLatest.description">
+				<source>This outputs the latest X entries.</source>
 			</trans-unit>
 
 
@@ -121,6 +131,12 @@
 			</trans-unit>
 			<trans-unit id="flexform.storageFolder">
 				<source>Storage folder for the uploads</source>
+			</trans-unit>
+			<trans-unit id="flexform.listPage">
+				<source>Page with the list plugin</source>
+			</trans-unit>
+			<trans-unit id="flexform.itemsLimit">
+				<source>Show X items</source>
 			</trans-unit>
 
 

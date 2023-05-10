@@ -7,7 +7,7 @@
     <div class="card mb-4">
         <div class="card-header mb-3">
 
-            <h3>{entry.title}</h3>
+            <h3 id="bb-{entry.uid}">{entry.title}</h3>
 
             <f:if condition="{entry.tstamp}">
                 <small class="text-muted">
@@ -64,6 +64,19 @@
 
             <f:format.html>{entry.message -> f:format.nl2br()}</f:format.html>
         </div>
+    </div>
+</f:section>
+
+<f:section name="Latest">
+
+    <div class="wsbulletinboard__latest__item">
+        <p><f:link.page pageUid="{settings.listPage}" section="#bb-{entry.uid}">{entry.title}</f:link.page> </p>
+        <f:if condition="{entry.tstamp}">
+            <small class="text-muted">
+                <f:format.date format="{f:translate(key:'dateTimeFormat')}">{entry.tstamp}</f:format.date>
+            </small>
+        </f:if>
+
     </div>
 </f:section>
 

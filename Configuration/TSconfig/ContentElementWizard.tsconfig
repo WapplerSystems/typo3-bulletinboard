@@ -19,6 +19,16 @@ mod.wizards.newContentElement.wizardItems.plugins {
         list_type = wsbulletinboard_list
       }
     }
+
+    WsBulletinboardLatest {
+      iconIdentifier = ext-ws-bulletinboard-icon
+      title = LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsBulletinboardLatest.title
+      description = LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:tsconfig.wizard.WsBulletinboardLatest.description
+      tt_content_defValues {
+        CType = list
+        list_type = wsbulletinboard_latest
+      }
+    }
   }
 
   show = *

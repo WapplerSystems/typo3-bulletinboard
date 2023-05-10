@@ -14,6 +14,12 @@ call_user_func(function () {
 
     ExtensionUtility::registerPlugin(
         'WapplerSystems.ws_bulletinboard',
+        'Latest',
+        'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:wsbulletinboard_latest'
+    );
+
+    ExtensionUtility::registerPlugin(
+        'WapplerSystems.ws_bulletinboard',
         'Form',
         'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:wsbulletinboard_form'
     );
@@ -26,5 +32,9 @@ call_user_func(function () {
     $pluginSignatureform = 'wsbulletinboard_list';
     $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignatureform] = 'pi_flexform';
     ExtensionManagementUtility::addPiFlexFormValue($pluginSignatureform, 'FILE:EXT:ws_bulletinboard/Configuration/FlexForm/list.xml');
+
+    $pluginSignatureform = 'wsbulletinboard_latest';
+    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignatureform] = 'pi_flexform';
+    ExtensionManagementUtility::addPiFlexFormValue($pluginSignatureform, 'FILE:EXT:ws_bulletinboard/Configuration/FlexForm/latest.xml');
 
 });

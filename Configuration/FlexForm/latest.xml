@@ -1,0 +1,74 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Function</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.itemsLimit>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.itemsLimit</label>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <default>10</default>
+                                <eval>trim,num</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.itemsLimit>
+                    <settings.sorting>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="1">
+                                        <numIndex index="0">
+                                            LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.newFirst
+                                        </numIndex>
+                                        <numIndex index="1">DESC</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">
+                                            LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.oldFirst
+                                        </numIndex>
+                                        <numIndex index="1">ASC</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.sorting>
+                    <persistence.storagePid>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.storagePid</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>3</size>
+                                <maxitems>99</maxitems>
+                                <minitems>1</minitems>
+                            </config>
+                        </TCEforms>
+                    </persistence.storagePid>
+                    <settings.listPage>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.listPage</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>1</size>
+                                <maxitems>1</maxitems>
+                                <minitems>1</minitems>
+                            </config>
+                        </TCEforms>
+                    </settings.listPage>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

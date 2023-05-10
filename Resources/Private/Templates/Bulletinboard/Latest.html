@@ -1,0 +1,19 @@
+<f:layout name="Default"/>
+<f:section name="main">
+    <f:flashMessages/>
+
+    <f:if condition="{entries}">
+        <f:then>
+
+            <f:for each="{entries}" as="entry" iteration="iterator">
+                <f:render partial="Entry/Entry" section="Latest" arguments="{entry:entry,settings:settings,iterator:iterator}" />
+            </f:for>
+
+        </f:then>
+        <f:else>
+            <div class="no-comment alert alert-info">
+                <f:translate key="no_records"/>
+            </div>
+        </f:else>
+    </f:if>
+</f:section>

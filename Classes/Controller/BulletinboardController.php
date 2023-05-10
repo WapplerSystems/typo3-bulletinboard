@@ -73,6 +73,33 @@ class BulletinboardController extends AbstractController
         return $this->htmlResponse();
     }
 
+
+    /**
+     *
+     * @return ResponseInterface
+     * @throws InvalidSlotException
+     * @throws InvalidSlotReturnException
+     */
+    public function latestAction(): ResponseInterface
+    {
+
+        $this->getTypoScriptFrontendController()->addCacheTags(['ws_bulletinboard']);
+
+        $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
+        $entries = $entryRepository->findSorted($this->settings);
+
+        $assignedValues = [
+            'settings' => $this->settings
+        ];
+        $assignedValues['entries'] = $entries->toArray();
+
+        $assignedValues = $this->emitActionSignal(self::class, __FUNCTION__, $assignedValues);
+
+        $this->view->assignMultiple($assignedValues);
+
+        return $this->htmlResponse();
+    }
+
     /**
      * action new
      *
