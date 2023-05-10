@@ -5,7 +5,7 @@
 
 <f:section name="Default">
     <div class="card mb-4">
-        <div class="card-header">
+        <div class="card-header mb-3">
 
             <h3>{entry.title}</h3>
 
@@ -26,7 +26,15 @@
                     </f:else>
                 </f:if>
 
-                <f:link.email email="{entry.feUser.email}">{entry.feUser.email}</f:link.email>
+                <f:if condition="{entry.feUser.email}">
+                    <f:then>
+                        <f:link.email email="{entry.feUser.email}">{entry.feUser.email}</f:link.email>
+                    </f:then>
+                    <f:else>
+                        <i>keine eMail-Adresse angegeben</i>
+                    </f:else>
+                </f:if>
+
 
             </div>
 
@@ -42,11 +50,15 @@
         <div class="card-body">
 
             <f:if condition="{entry.images}">
-                <f:for each="{entry.images}" as="image">
-                    <ce:link.clickEnlarge image="{image.originalResource}" configuration="{settings.media.popup}">
-                        <f:image image="{image}" maxWidth="400" class="img-fluid" />
-                    </ce:link.clickEnlarge>
-                </f:for>
+                <div class="wsbulletinboard__images row mb-3">
+                    <f:for each="{entry.images}" as="image">
+                        <div class="wsbulletinboard__images__image col-12 col-md-4">
+                            <ce:link.clickEnlarge image="{image.originalResource}" configuration="{settings.media.popup}">
+                                <f:image image="{image}" maxWidth="400" maxHeight="300" class="img-fluid" />
+                            </ce:link.clickEnlarge>
+                        </div>
+                    </f:for>
+                </div>
 
             </f:if>
 
