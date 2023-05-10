@@ -69,8 +69,8 @@
 
 <f:section name="Latest">
 
-    <div class="wsbulletinboard__latest__item">
-        <p><f:link.page pageUid="{settings.listPage}" section="#bb-{entry.uid}">{entry.title}</f:link.page> </p>
+    <div class="wsbulletinboard__latest__item mb-3">
+        <p class="mb-0"><f:link.page pageUid="{settings.listPage}" section="#bb-{entry.uid}">{entry.title}</f:link.page> </p>
         <f:if condition="{entry.tstamp}">
             <small class="text-muted">
                 <f:format.date format="{f:translate(key:'dateTimeFormat')}">{entry.tstamp}</f:format.date>
