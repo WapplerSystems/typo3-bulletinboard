@@ -49,6 +49,9 @@ class UserOwnsEntryViewHelper extends AbstractConditionViewHelper
         if (!$userAspect->isLoggedIn()) {
             return false;
         }
+        if ($entry->getFeUser() === null) {
+            return false;
+        }
 
         return $entry->getFeUser()->getUid() === $userAspect->get('id');
     }
