@@ -22,6 +22,9 @@ class EntryRepository extends Repository
         } else {
             $query->setOrderings(['crdate' => QueryInterface::ORDER_ASCENDING]);
         }
+        if ((int)($settings['itemsLimit'] ?? 0) > 0) {
+            $query->setLimit((int)($settings['itemsLimit']));
+        }
         return $query->execute();
     }
 
