@@ -12,3 +12,9 @@ services:
       - name: 'console.command'
         command: 'wsbulletinboard:removeoldentries'
         description: ''
+
+  WapplerSystems\WsBulletinboard\Command\RemoveEntryCommand:
+    tags:
+      - name: 'console.command'
+        command: 'wsbulletinboard:removeentry'
+        description: ''

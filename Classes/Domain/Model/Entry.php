@@ -30,6 +30,7 @@ class Entry extends AbstractEntity
 
     /**
      * @var ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade remove
      */
     protected $images = null;
 

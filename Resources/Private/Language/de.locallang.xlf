@@ -16,9 +16,6 @@
 			<trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
 				<target>Email</target>
 			</trans-unit>
-			<trans-unit id="website">
-				<target>Website</target>
-			</trans-unit>
 			<trans-unit id="xFromY" xml:space="preserve">
 				<source>%1$s from %2$s</source>
 				<target>%1$s aus %2$s</target>
@@ -45,9 +42,6 @@
 			</trans-unit>
 			<trans-unit id="mail.Email">
 				<target>Email</target>
-			</trans-unit>
-			<trans-unit id="mail.Website">
-				<target>Website</target>
 			</trans-unit>
 			<trans-unit id="mail.Message">
 				<target>Message</target>

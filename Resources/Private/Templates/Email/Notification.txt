@@ -12,16 +12,6 @@
             {formvh:translateElementProperty(element: form.formDefinition.elements.email, property: 'label')}: {formValue.processedValue}
         </f:if>
     </f:spaceless></formvh:renderFormValue>
-    <formvh:renderFormValue renderable="{form.formDefinition.elements.city}" as="formValue"><f:spaceless>
-        <f:if condition="{formValue.processedValue}">
-            {formvh:translateElementProperty(element: form.formDefinition.elements.city, property: 'label')}: {formValue.processedValue}
-        </f:if>
-    </f:spaceless></formvh:renderFormValue>
-    <formvh:renderFormValue renderable="{form.formDefinition.elements.website}" as="formValue"><f:spaceless>
-        <f:if condition="{formValue.processedValue}">
-            {formvh:translateElementProperty(element: form.formDefinition.elements.website, property: 'label')}: {formValue.processedValue}
-        </f:if>
-    </f:spaceless></formvh:renderFormValue>
     {formvh:translateElementProperty(element: form.formDefinition.elements.message, property: 'label')}
     <formvh:renderFormValue renderable="{form.formDefinition.elements.message}" as="formValue"><f:spaceless>
         <f:if condition="{formValue.processedValue}">

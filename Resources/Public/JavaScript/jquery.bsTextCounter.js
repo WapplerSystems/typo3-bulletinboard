@@ -8,7 +8,7 @@
         this.$element   = $(element);
         this.$status    = $(this.options.containerElement);
 
-        this.options.limit = parseInt(this.$element.data('maximum-chars'));
+        this.options.limit = parseInt(this.$element.attr('maxlength'));
 
         // Add classes to the status container, and insert base text
         this.$status

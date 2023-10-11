@@ -89,6 +89,9 @@
 				<source>Minimum characters in message field</source>
 				<target>Minimale Anzahl von Zeichen im Nachricht-Feld</target>
 			</trans-unit>
+			<trans-unit id="flexform.fields.images.maxUploadFileSize">
+				<target>Maximale Dateigröße. Beispiel: 10M. Wenn leer, wird der Systemstandard verwendet</target>
+			</trans-unit>
 
 			<trans-unit id="flexform.function">
 				<target>Funktion</target>

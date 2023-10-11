@@ -33,16 +33,6 @@
                 </tr>
             </f:if>
         </formvh:renderFormValue>
-        <formvh:renderFormValue renderable="{form.formDefinition.elements.website}" as="formValue">
-            <f:if condition="{formValue.processedValue}">
-                <tr>
-                    <th style="padding-right: 20px">{formvh:translateElementProperty(element: form.formDefinition.elements.website, property: 'label')}</th>
-                    <td>
-                        {formValue.processedValue}
-                    </td>
-                </tr>
-            </f:if>
-        </formvh:renderFormValue>
     </table>
 
     <h4 style="margin-top: 20px">{formvh:translateElementProperty(element: form.formDefinition.elements.message, property: 'label')}</h4>

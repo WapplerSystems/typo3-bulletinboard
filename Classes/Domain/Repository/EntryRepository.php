@@ -3,8 +3,7 @@
 namespace WapplerSystems\WsBulletinboard\Domain\Repository;
 
 
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use WapplerSystems\WsBulletinboard\Domain\Model\Entry;
@@ -41,16 +40,40 @@ class EntryRepository extends Repository
 
     public function removeOlderThan($timestamp) {
 
-        $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
-        $queryBuilder = $connectionPool->getQueryBuilderForTable('tx_wsbulletinboard_domain_model_entry');
-        $affectedRows = $queryBuilder
-            ->delete('tx_wsbulletinboard_domain_model_entry')
-            ->where(
-                $queryBuilder->expr()->lte('tstamp', $queryBuilder->createNamedParameter($timestamp))
-            )
-            ->executeStatement();
-
+        $query = $this->createQuery();
+        $query->matching($query->lessThan('tstamp', $timestamp));
+        $entries = $query->execute();
+        foreach ($entries as $entry) {
+            $this->remove($entry);
+        }
 
     }
+
+
+    /**
+     * @param Entry $object
+     * @return void
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     */
+    public function remove($object)
+    {
+
+        $images = $object->getImages();
+        $folder = null;
+        if ($images) {
+            foreach ($images as $image) {
+                /** @var FileReference $image */
+                $file = $image->getOriginalResource()->getOriginalFile();
+                $folder = $file->getParentFolder();
+                $file->delete();
+            }
+        }
+        if ($folder) {
+            $folder->delete();
+        }
+
+        parent::remove($object);
+    }
+
 
 }
