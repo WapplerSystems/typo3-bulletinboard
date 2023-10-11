@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace WapplerSystems\WsBulletinboard\Form\Factory;
 
@@ -8,6 +8,7 @@ use TYPO3\CMS\Core\Crypto\Random;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MailUtility;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator;
 use TYPO3\CMS\Form\Domain\Configuration\ConfigurationService;
@@ -20,6 +21,7 @@ use TYPO3\CMS\Form\Domain\Model\FormElements\GenericFormElement;
 use TYPO3\CMS\Form\Domain\Model\FormElements\GridRow;
 use TYPO3\CMS\Form\Domain\Model\FormElements\Section;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
+use TYPO3\CMS\Form\Mvc\Validation\FileSizeValidator;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use WapplerSystems\FormExtended\Domain\Finishers\AttachUploadsToObjectFinisher;
 use WapplerSystems\WsBulletinboard\Exception\MissingConfigurationException;
@@ -215,9 +217,26 @@ class BulletinboardFormFactory extends AbstractFormFactory
 
         $element = $fieldset->createElement('images', 'FileUpload');
         $element->setLabel('Images');
-        $element->setProperty('multiple',true);
-        $element->setProperty('allowedMimeTypes',['image/jpg','image/jpeg']);
-        $element->setProperty('saveToFileMount',$configuration['storageFolder']);
+        $element->setProperty('multiple', true);
+        $element->setProperty('allowedMimeTypes', ['image/jpg', 'image/jpeg']);
+        $element->setProperty('saveToFileMount', $configuration['storageFolder']);
+
+
+        $maxUploadFileSizeString = trim($configuration['fields']['images']['maxUploadFileSize'] ?? '');
+        $maxUploadFileSize = 0;
+        if ($maxUploadFileSizeString !== '') {
+            $maxUploadFileSize = $this->humanReadableToBytes($maxUploadFileSizeString) / 1024;
+        }
+        if ($maxUploadFileSize === 0 || $maxUploadFileSize > GeneralUtility::getMaxUploadFileSize()) {
+            $maxUploadFileSize = GeneralUtility::getMaxUploadFileSize();
+        }
+
+        $element->setProperty('fluidAdditionalAttributes', [
+            'min' => '0',
+            'max' => $maxUploadFileSize * 1024,
+            'data-msg-filesize-exceeded' => LocalizationUtility::translate('msg.filesizeExceeded', 'ws_bulletinboard', [$this->bytesToString($maxUploadFileSize * 1024)]),
+        ]);
+        $element->addValidator(new FileSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('message', 'Textarea');
@@ -227,7 +246,6 @@ class BulletinboardFormFactory extends AbstractFormFactory
         $element->setProperty('fluidAdditionalAttributes', ['maxlength' => (int)($configuration['fields']['message']['maxCharacters'] ?? PHP_INT_MAX), 'minlength' => (int)($configuration['fields']['message']['minCharacters'] ?? 0)]);
         $element->addValidator(new NotEmptyValidator());
         $element->addValidator(new StringLengthValidator(['minimum' => (int)($configuration['fields']['message']['minCharacters'] ?? 50), 'maximum' => (int)($configuration['fields']['message']['maxCharacters'] ?? PHP_INT_MAX)]));
-
 
 
         $this->triggerFormBuildingFinished($formDefinition);
@@ -241,6 +259,55 @@ class BulletinboardFormFactory extends AbstractFormFactory
     protected function getTypoScriptFrontendController(): TypoScriptFrontendController
     {
         return $GLOBALS['TSFE'];
+    }
+
+
+    private function humanReadableToBytes(string $size)
+    {
+        $units = [
+            'B' => 1,
+            'KB' => 1024,
+            'MB' => 1024 * 1024,
+            'GB' => 1024 * 1024 * 1024,
+            'TB' => 1024 * 1024 * 1024 * 1024,
+            'PB' => 1024 * 1024 * 1024 * 1024 * 1024,
+        ];
+
+        // Den Wert und die Einheit separieren
+        $number = (float)preg_replace('/[^0-9\.]/', '', $size);
+        $unit = strtoupper(trim(preg_replace('/[0-9\.]/', '', $size)));
+
+        // Überprüfen, ob die angegebene Einheit gültig ist
+        if (!array_key_exists($unit, $units)) {
+            throw new \Exception("Unknown file unit: $unit");
+        }
+
+        // Wert in Bytes umwandeln
+        return $number * $units[$unit];
+    }
+
+    private function bytesToString(float $bytes, $decimals = 0, $decimalSeparator = '.', $thousandsSeparator = ',', $units = null)
+    {
+        if ($units === null) {
+            $units = LocalizationUtility::translate('viewhelper.format.bytes.units', 'fluid');
+        }
+        $units = GeneralUtility::trimExplode(',', $units, true);
+
+        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow = min($pow, count($units) - 1);
+        $bytes /= 2 ** (10 * $pow);
+
+        return sprintf(
+            '%s %s',
+            number_format(
+                round($bytes, 4 * $decimals),
+                (int)$decimals,
+                $decimalSeparator,
+                $thousandsSeparator
+            ),
+            $units[$pow]
+        );
+
     }
 
 }

@@ -244,6 +244,11 @@
 				<source>Delete</source>
 				<target>Löschen</target>
 			</trans-unit>
+
+			<trans-unit id="msg.filesizeExceeded">
+				<source>The file size exceeds the maximum allowed size of %s.</source>
+				<target>Die maximal erlaubte Dateigröße von %s wurde überschritten.</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

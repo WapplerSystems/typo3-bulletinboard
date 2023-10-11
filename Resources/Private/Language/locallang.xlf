@@ -142,6 +142,10 @@
 				<source>Delete</source>
 			</trans-unit>
 
+			<trans-unit id="msg.filesizeExceeded">
+				<source>The file size exceeds the maximum allowed size of %s.</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

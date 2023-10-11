@@ -116,7 +116,7 @@
 				<source>Minimum characters in message field</source>
 			</trans-unit>
 			<trans-unit id="flexform.fields.images.maxUploadFileSize">
-				<source>Maximum file size. Example: 10M. If not set, the system default is used</source>
+				<source>Maximum file size. Example: 10MB. If not set, the system default is used</source>
 			</trans-unit>
 
 

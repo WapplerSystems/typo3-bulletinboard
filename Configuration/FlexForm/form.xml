@@ -141,6 +141,15 @@
                             </config>
                         </TCEforms>
                     </settings.fields.message.minCharacters>
+                    <settings.fields.images.maxUploadFileSize>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.fields.images.maxUploadFileSize</label>
+                            <config>
+                                <type>input</type>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.images.maxUploadFileSize>
                 </el>
             </ROOT>
         </fields>
