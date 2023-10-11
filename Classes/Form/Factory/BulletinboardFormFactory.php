@@ -24,6 +24,8 @@ use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
 use TYPO3\CMS\Form\Mvc\Validation\FileSizeValidator;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use WapplerSystems\FormExtended\Domain\Finishers\AttachUploadsToObjectFinisher;
+use WapplerSystems\FormExtended\Mvc\Validation\FileCollectionSizeValidator;
+use WapplerSystems\FormExtended\Mvc\Validation\FileCountValidator;
 use WapplerSystems\WsBulletinboard\Exception\MissingConfigurationException;
 
 class BulletinboardFormFactory extends AbstractFormFactory
@@ -230,13 +232,32 @@ class BulletinboardFormFactory extends AbstractFormFactory
         if ($maxUploadFileSize === 0 || $maxUploadFileSize > GeneralUtility::getMaxUploadFileSize()) {
             $maxUploadFileSize = GeneralUtility::getMaxUploadFileSize();
         }
-
-        $element->setProperty('fluidAdditionalAttributes', [
-            'min' => '0',
-            'max' => $maxUploadFileSize * 1024,
+        $fluidAdditionalAttributes = [
+            'data-min-filesize' => 0,
+            'data-max-filesize' => $maxUploadFileSize * 1024,
             'data-msg-filesize-exceeded' => LocalizationUtility::translate('msg.filesizeExceeded', 'ws_bulletinboard', [$this->bytesToString($maxUploadFileSize * 1024)]),
-        ]);
-        $element->addValidator(new FileSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
+        ];
+
+        $maxFiles = (int)($configuration['fields']['images']['maxFiles'] ?? 0);
+        $maxSizePerFile = 0;
+        $maxSizePerFileString = ($configuration['fields']['images']['maxSizePerFile'] ?? '');
+        if ($maxSizePerFileString !== '') {
+            $maxSizePerFile = $this->humanReadableToBytes($maxSizePerFileString) / 1024;
+        }
+
+        if ($maxSizePerFile > 0) {
+            $element->addValidator(new FileSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
+            $fluidAdditionalAttributes['data-min-filesize-per-file'] = 0;
+            $fluidAdditionalAttributes['data-max-filesize-per-file'] = $maxSizePerFile * 1024;
+        }
+        $element->addValidator(new FileCollectionSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
+        if ($maxFiles > 0) {
+            $element->addValidator(new FileCountValidator(['maximum' => 4]));
+            $fluidAdditionalAttributes['data-min-files'] = 0;
+            $fluidAdditionalAttributes['data-max-files'] = $maxFiles;
+            $fluidAdditionalAttributes['data-msg-files-limit'] = LocalizationUtility::translate('msg.filesLimit', 'ws_bulletinboard', [0, $maxFiles]);
+        }
+        $element->setProperty('fluidAdditionalAttributes', $fluidAdditionalAttributes);
 
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('message', 'Textarea');

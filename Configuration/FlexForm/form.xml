@@ -150,6 +150,24 @@
                             </config>
                         </TCEforms>
                     </settings.fields.images.maxUploadFileSize>
+                    <settings.fields.images.maxSizePerFile>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.fields.images.maxSizePerFile</label>
+                            <config>
+                                <type>input</type>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.images.maxSizePerFile>
+                    <settings.fields.images.maxFiles>
+                        <TCEforms>
+                            <label>LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:flexform.fields.images.maxFiles</label>
+                            <config>
+                                <type>input</type>
+                                <eval>int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.fields.images.maxFiles>
                 </el>
             </ROOT>
         </fields>
