@@ -40,12 +40,16 @@
         <target state="needs-translation">Action key</target>
       </trans-unit>
       <trans-unit id="wsbulletinboard_form">
-        <source>Bulletinboard: Form</source>
-        <target state="needs-translation">Bulletinboard: Form</target>
+        <source>Bulletin board: Form</source>
+        <target state="needs-translation">Bulletin board: Form</target>
       </trans-unit>
       <trans-unit id="wsbulletinboard_list">
-        <source>Bulletinboard: List</source>
-        <target state="needs-translation">Bulletinboard: List</target>
+        <source>Bulletin board: List</source>
+        <target state="needs-translation">Bulletin board: List</target>
+      </trans-unit>
+      <trans-unit id="wsbulletinboard_latest">
+        <source>Bulletin board: Latest</source>
+        <target state="needs-translation">Bulletin board: Latest</target>
       </trans-unit>
       <trans-unit id="tsconfig.wizard.WsBulletinboardForm.title">
         <source>WapplerSystems Bulletinboard - Form</source>
@@ -62,6 +66,14 @@
       <trans-unit id="tsconfig.wizard.WsBulletinboardList.description">
         <source>This outputs the entries.</source>
         <target state="needs-translation">This outputs the entries.</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsBulletinboardLatest.title">
+        <source>WapplerSystems Bulletinboard - Latest</source>
+        <target state="needs-translation">WapplerSystems Bulletinboard - Latest</target>
+      </trans-unit>
+      <trans-unit id="tsconfig.wizard.WsBulletinboardLatest.description">
+        <source>This outputs the latest X entries.</source>
+        <target state="needs-translation">This outputs the latest X entries.</target>
       </trans-unit>
       <trans-unit id="flexform.thankyouPageId">
         <source>"Thank you" page</source>
@@ -127,6 +139,22 @@
         <source>Maximum characters in message field</source>
         <target state="needs-translation">Maximum characters in message field</target>
       </trans-unit>
+      <trans-unit id="flexform.fields.message.minCharacters">
+        <source>Minimum characters in message field</source>
+        <target state="needs-translation">Minimum characters in message field</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.images.maxUploadFileSize">
+        <source>Total file size of all files. Example: 10MB. If not set, the system default is used</source>
+        <target state="needs-translation">Total file size of all files. Example: 10MB. If not set, the system default is used</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.images.maxSizePerFile">
+        <source>Maximum file size per file. Example: 10MB. Optional.</source>
+        <target state="needs-translation">Maximum file size per file. Example: 10MB. Optional.</target>
+      </trans-unit>
+      <trans-unit id="flexform.fields.images.maxFiles">
+        <source>Maximum number of files. If 0, then no limit is set.</source>
+        <target state="needs-translation">Maximum number of files. If 0, then no limit is set.</target>
+      </trans-unit>
       <trans-unit id="flexform.function">
         <source>Function</source>
         <target state="needs-translation">Function</target>
@@ -142,6 +170,18 @@
       <trans-unit id="flexform.storagePid">
         <source>Storage Page ID</source>
         <target state="needs-translation">Storage Page ID</target>
+      </trans-unit>
+      <trans-unit id="flexform.storageFolder">
+        <source>Storage folder for the uploads</source>
+        <target state="needs-translation">Storage folder for the uploads</target>
+      </trans-unit>
+      <trans-unit id="flexform.listPage">
+        <source>Page with the list plugin</source>
+        <target state="needs-translation">Page with the list plugin</target>
+      </trans-unit>
+      <trans-unit id="flexform.itemsLimit">
+        <source>Show X items</source>
+        <target state="needs-translation">Show X items</target>
       </trans-unit>
       <trans-unit id="addImage">
         <source>Add image</source>
