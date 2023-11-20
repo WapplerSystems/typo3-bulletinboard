@@ -15,10 +15,6 @@
         <source>Email</source>
         <target state="needs-translation">Email</target>
       </trans-unit>
-      <trans-unit id="website">
-        <source>Website</source>
-        <target state="needs-translation">Website</target>
-      </trans-unit>
       <trans-unit id="xFromY" xml:space="preserve">
 				<source>%1$s from %2$s</source>
 			<target state="needs-translation">%1$s from %2$s</target></trans-unit>
@@ -157,6 +153,10 @@
       <trans-unit id="btn.delete">
         <source>Delete</source>
         <target state="needs-translation">Delete</target>
+      </trans-unit>
+      <trans-unit id="msg.filesizeExceeded">
+        <source>The file size exceeds the maximum allowed size of %s.</source>
+        <target state="needs-translation">The file size exceeds the maximum allowed size of %s.</target>
       </trans-unit>
     </body>
   </file>
