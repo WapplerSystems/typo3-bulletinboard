@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use WapplerSystems\WsBulletinboard\Domain\Repository\EntryRepository;
 
 class RemoveOldEntriesCommand extends Command
@@ -36,6 +37,9 @@ class RemoveOldEntriesCommand extends Command
 
         $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
         $entryRepository->removeOlderThan($limit);
+
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+        $persistenceManager->persistAll();
 
         $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
         $cacheManager->flushCachesInGroupByTag('pages', 'ws_bulletinboard');

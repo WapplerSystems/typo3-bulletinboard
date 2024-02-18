@@ -41,8 +41,11 @@ class EntryRepository extends Repository
     public function removeOlderThan($timestamp) {
 
         $query = $this->createQuery();
+        $query->getQuerySettings()->setIgnoreEnableFields(true);
+        $query->getQuerySettings()->setRespectSysLanguage(false);
+        $query->getQuerySettings()->setRespectStoragePage(false);
         $query->matching($query->lessThan('tstamp', $timestamp));
-        $entries = $query->execute();
+        $entries = $query->execute()->toArray();
         foreach ($entries as $entry) {
             $this->remove($entry);
         }
