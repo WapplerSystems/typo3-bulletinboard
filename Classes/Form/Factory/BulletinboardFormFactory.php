@@ -109,9 +109,9 @@ class BulletinboardFormFactory extends AbstractFormFactory
             ]
         ]);
 
-        /** @var AttachUploadsToObjectFinisher $moveUploadsFinisher */
-        $moveUploadsFinisher = $formDefinition->createFinisher('AttachUploadsToObject');
-        $moveUploadsFinisher->setOptions([
+        /** @var AttachUploadsToObjectFinisher $attachUploadsToObjectFinisher */
+        $attachUploadsToObjectFinisher = $formDefinition->createFinisher('AttachUploadsToObject');
+        $attachUploadsToObjectFinisher->setOptions([
             'elements' => [
                 'images' => [
                     'table' => 'tx_wsbulletinboard_domain_model_entry',
@@ -246,13 +246,13 @@ class BulletinboardFormFactory extends AbstractFormFactory
         }
 
         if ($maxSizePerFile > 0) {
-            $element->addValidator(new FileSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
+            //$element->addValidator(new FileSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
             $fluidAdditionalAttributes['data-min-filesize-per-file'] = 0;
             $fluidAdditionalAttributes['data-max-filesize-per-file'] = $maxSizePerFile * 1024;
         }
         $element->addValidator(new FileCollectionSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
         if ($maxFiles > 0) {
-            $element->addValidator(new FileCountValidator(['maximum' => 4]));
+            //$element->addValidator(new FileCountValidator(['maximum' => 4]));
             $fluidAdditionalAttributes['data-min-files'] = 0;
             $fluidAdditionalAttributes['data-max-files'] = $maxFiles;
             $fluidAdditionalAttributes['data-msg-files-limit'] = LocalizationUtility::translate('msg.filesLimit', 'ws_bulletinboard', [0, $maxFiles]);
