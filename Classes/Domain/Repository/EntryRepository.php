@@ -3,6 +3,7 @@
 namespace WapplerSystems\WsBulletinboard\Domain\Repository;
 
 
+use TYPO3\CMS\Core\Resource\Exception\InsufficientFolderAccessPermissionsException;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
@@ -69,10 +70,13 @@ class EntryRepository extends Repository
                 $file = $image->getOriginalResource()->getOriginalFile();
                 $folder = $file->getParentFolder();
                 $file->delete();
+                try {
+                    if ($folder->getFileCount([], true) === 0) {
+                        $folder->delete();
+                    }
+                } catch (InsufficientFolderAccessPermissionsException $e) {
+                }
             }
-        }
-        if ($folder) {
-            $folder->delete();
         }
 
         parent::remove($object);
