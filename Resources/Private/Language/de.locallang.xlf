@@ -116,7 +116,7 @@
       </trans-unit>
       <trans-unit id="hdl.entryNotFound">
         <source>The entry was unfortunately not found</source>
-        <target state="translated">Dieser Eintrag wurde leider nicht gefunden.</target>
+        <target state="translated">Dieser Eintrag wurde leider nicht gefunden</target>
       </trans-unit>
       <trans-unit id="msg.notOwner">
         <source>You are not the owner of this entry.</source>
