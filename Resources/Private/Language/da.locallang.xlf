@@ -5,15 +5,15 @@
     <body>
       <trans-unit id="tx_wsbulletinboard_domain_model_entry.name">
         <source>Name</source>
-        <target state="needs-translation">Name</target>
+        <target state="translated">Navn</target>
       </trans-unit>
       <trans-unit id="tx_wsbulletinboard_domain_model_entry.city">
         <source>City</source>
-        <target state="needs-translation">City</target>
+        <target state="translated">By</target>
       </trans-unit>
       <trans-unit id="tx_wsbulletinboard_domain_model_entry.email">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="translated">E-mail</target>
       </trans-unit>
       <trans-unit id="xFromY" xml:space="preserve">
 				<source>%1$s from %2$s</source>
