@@ -51,21 +51,21 @@
         <source>Bulletin board: Latest</source>
         <target state="needs-translation">Bulletin board: Latest</target>
       </trans-unit>
-      <trans-unit id="tsconfig.wizard.WsBulletinboardForm.title">
+      <trans-unit id="tsconfig.wizard.WsBulletinboardForm.title" approved="yes">
         <source>WapplerSystems Bulletinboard - Form</source>
-        <target state="translated">WapplerSystems schwarzes Brett - Formular</target>
+        <target state="final">WapplerSystems schwarzes Brett - Formular</target>
       </trans-unit>
-      <trans-unit id="tsconfig.wizard.WsBulletinboardForm.description">
+      <trans-unit id="tsconfig.wizard.WsBulletinboardForm.description" approved="yes">
         <source>This allows the visitor to write a new entry.</source>
-        <target state="translated">Dies ermöglicht dem Besucher, einen neuen Eintrag zu schreiben.</target>
+        <target state="final">Dies ermöglicht dem Besucher, einen neuen Eintrag zu schreiben.</target>
       </trans-unit>
-      <trans-unit id="tsconfig.wizard.WsBulletinboardList.title">
+      <trans-unit id="tsconfig.wizard.WsBulletinboardList.title" approved="yes">
         <source>WapplerSystems Bulletinboard - List</source>
-        <target state="translated">WapplerSystems schwarzes Brett - Liste</target>
+        <target state="final">WapplerSystems schwarzes Brett - Liste</target>
       </trans-unit>
-      <trans-unit id="tsconfig.wizard.WsBulletinboardList.description">
+      <trans-unit id="tsconfig.wizard.WsBulletinboardList.description" approved="yes">
         <source>This outputs the entries.</source>
-        <target state="translated">Dies gibt die Einträge.</target>
+        <target state="final">Dies gibt die Einträge.</target>
       </trans-unit>
       <trans-unit id="tsconfig.wizard.WsBulletinboardLatest.title">
         <source>WapplerSystems Bulletinboard - Latest</source>
@@ -79,13 +79,13 @@
         <source>"Thank you" page</source>
         <target state="needs-translation">"Thank you" page</target>
       </trans-unit>
-      <trans-unit id="flexform.verification.recipients">
+      <trans-unit id="flexform.verification.recipients" approved="yes">
         <source>Recipients for checking the new entries</source>
-        <target state="translated">Die Empfänger zur Prüfung der neuen Einträge</target>
+        <target state="final">Die Empfänger zur Prüfung der neuen Einträge</target>
       </trans-unit>
-      <trans-unit id="flexform.verification.recipient">
+      <trans-unit id="flexform.verification.recipient" approved="yes">
         <source>Recipient</source>
-        <target state="translated">Empfänger</target>
+        <target state="final">Empfänger</target>
       </trans-unit>
       <trans-unit id="flexform.auditor.emailaddress">
         <source>Email</source>
@@ -115,9 +115,9 @@
         <source>Oldest first</source>
         <target state="needs-translation">Oldest first</target>
       </trans-unit>
-      <trans-unit id="flexform.automaticApproval">
+      <trans-unit id="flexform.automaticApproval" approved="yes">
         <source>Automatic approval</source>
-        <target state="translated">Automatische Bestätigung</target>
+        <target state="final">Automatische Bestätigung</target>
       </trans-unit>
       <trans-unit id="flexform.verification.email.senderName">
         <source>Sender name of verification email</source>
@@ -127,17 +127,17 @@
         <source>Sender email address of verification email</source>
         <target state="needs-translation">Sender email address of verification email</target>
       </trans-unit>
-      <trans-unit id="flexforms_tab.general">
+      <trans-unit id="flexforms_tab.general" approved="yes">
         <source>General settings</source>
-        <target state="translated">Allgemeine Einstellungen</target>
+        <target state="final">Allgemeine Einstellungen</target>
       </trans-unit>
-      <trans-unit id="flexforms_tab.fields">
+      <trans-unit id="flexforms_tab.fields" approved="yes">
         <source>Form fields</source>
-        <target state="translated">Formularfelder</target>
+        <target state="final">Formularfelder</target>
       </trans-unit>
-      <trans-unit id="flexform.fields.message.maxCharacters">
+      <trans-unit id="flexform.fields.message.maxCharacters" approved="yes">
         <source>Maximum characters in message field</source>
-        <target state="translated">Maximale Anzahl von Zeichen im Nachricht-Feld</target>
+        <target state="final">Maximale Anzahl von Zeichen im Nachricht-Feld</target>
       </trans-unit>
       <trans-unit id="flexform.fields.message.minCharacters">
         <source>Minimum characters in message field</source>
@@ -167,9 +167,9 @@
         <source>Form</source>
         <target state="needs-translation">Form</target>
       </trans-unit>
-      <trans-unit id="flexform.storagePid">
+      <trans-unit id="flexform.storagePid" approved="yes">
         <source>Storage Page ID</source>
-        <target state="translated">Ordner zur Speicherung der Einträge</target>
+        <target state="final">Ordner zur Speicherung der Einträge</target>
       </trans-unit>
       <trans-unit id="flexform.storageFolder">
         <source>Storage folder for the uploads</source>
