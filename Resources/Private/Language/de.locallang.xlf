@@ -15,9 +15,9 @@
         <source>Email</source>
         <target state="needs-translation">Email</target>
       </trans-unit>
-      <trans-unit id="xFromY" xml:space="preserve">
+      <trans-unit id="xFromY" xml:space="preserve" approved="yes">
 				<source>%1$s from %2$s</source>
-			<target state="translated">%1$s aus %2$s</target></trans-unit>
+			<target state="final">%1$s aus %2$s</target></trans-unit>
       <trans-unit id="dateTimeText" xml:space="preserve">
 				<source>%1$s at %2$s</source>
 			<target state="needs-translation">%1$s at %2$s</target></trans-unit>
@@ -62,9 +62,9 @@
         <target state="needs-translation">Regards.</target>
       </trans-unit>
       <!-- Mail template -->
-      <trans-unit id="no_records">
+      <trans-unit id="no_records" approved="yes">
         <source>No entries found.</source>
-        <target state="translated">Es wurden keine Einträge gefunden.</target>
+        <target state="final">Es wurden keine Einträge gefunden.</target>
       </trans-unit>
       <!-- Error messages -->
       <trans-unit id="validator.newWsbulletinboard.name.1221560718">
@@ -102,21 +102,21 @@
         <source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
         <target state="needs-translation"><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></target>
       </trans-unit>
-      <trans-unit id="msg.entryDone">
+      <trans-unit id="msg.entryDone" approved="yes">
         <source>It may take a while until your bulletinboard entry appears in the list.</source>
-        <target state="translated">Es kann etwas dauern, bis Ihr Eintrag in der Liste erscheint.</target>
+        <target state="final">Es kann etwas dauern, bis Ihr Eintrag in der Liste erscheint.</target>
       </trans-unit>
-      <trans-unit id="hdl.entryDone">
+      <trans-unit id="hdl.entryDone" approved="yes">
         <source>Thank you for the bulletinboard entry</source>
-        <target state="translated">Danke für den Eintrag</target>
+        <target state="final">Danke für den Eintrag</target>
       </trans-unit>
-      <trans-unit id="msg.entryNotFound">
+      <trans-unit id="msg.entryNotFound" approved="yes">
         <source>Perhaps this has already been deleted or confirmed.</source>
-        <target state="translated">Vielleicht wurde dieser bereits gelöscht oder bestätigt.</target>
+        <target state="final">Vielleicht wurde dieser bereits gelöscht oder bestätigt.</target>
       </trans-unit>
-      <trans-unit id="hdl.entryNotFound">
+      <trans-unit id="hdl.entryNotFound" approved="yes">
         <source>The entry was unfortunately not found</source>
-        <target state="translated">Dieser Eintrag wurde leider nicht gefunden</target>
+        <target state="final">Dieser Eintrag wurde leider nicht gefunden</target>
       </trans-unit>
       <trans-unit id="msg.notOwner">
         <source>You are not the owner of this entry.</source>
@@ -134,25 +134,25 @@
         <source>Success</source>
         <target state="needs-translation">Success</target>
       </trans-unit>
-      <trans-unit id="hdl.entryConfirmed">
+      <trans-unit id="hdl.entryConfirmed" approved="yes">
         <source>The entry was confirmed</source>
-        <target state="translated">Der Eintrag wurde bestätigt</target>
+        <target state="final">Der Eintrag wurde bestätigt</target>
       </trans-unit>
-      <trans-unit id="hdl.entryDeclined">
+      <trans-unit id="hdl.entryDeclined" approved="yes">
         <source>The entry was declined</source>
-        <target state="translated">Der Eintrag wurde erfolgreich gelöscht</target>
+        <target state="final">Der Eintrag wurde erfolgreich gelöscht</target>
       </trans-unit>
-      <trans-unit id="btn.confirm">
+      <trans-unit id="btn.confirm" approved="yes">
         <source>Confirm</source>
-        <target state="translated">Bestätigen</target>
+        <target state="final">Bestätigen</target>
       </trans-unit>
-      <trans-unit id="btn.decline">
+      <trans-unit id="btn.decline" approved="yes">
         <source>Decline</source>
-        <target state="translated">Ablehnen</target>
+        <target state="final">Ablehnen</target>
       </trans-unit>
-      <trans-unit id="btn.delete">
+      <trans-unit id="btn.delete" approved="yes">
         <source>Delete</source>
-        <target state="translated">Löschen</target>
+        <target state="final">Löschen</target>
       </trans-unit>
       <trans-unit id="msg.filesizeExceeded">
         <source>The file size exceeds the maximum allowed size of %s.</source>
