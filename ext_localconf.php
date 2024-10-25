@@ -15,7 +15,7 @@ ExtensionUtility::configurePlugin(
         BulletinboardController::class => 'list,delete,edit',
     ],
     [
-        BulletinboardController::class => 'delete,edit',
+        BulletinboardController::class => 'list,delete,edit',
     ]
 );
 
@@ -26,6 +26,7 @@ ExtensionUtility::configurePlugin(
         BulletinboardController::class => 'latest',
     ],
     [
+        BulletinboardController::class => 'latest',
     ]
 );
 
