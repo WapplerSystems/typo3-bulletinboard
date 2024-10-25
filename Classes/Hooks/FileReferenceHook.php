@@ -32,7 +32,7 @@ class FileReferenceHook
             if (is_array($rows)) {
                 foreach ($rows as $row) {
                     $file = $resourceFactory->getFileObject($row['uid_local']);
-                    if ($file instanceof File) {
+                    if ($file instanceof File && $file->exists()) {
                         $folder = $file->getParentFolder();
                         $file->delete();
 
