@@ -67,13 +67,17 @@ class EntryRepository extends Repository
             foreach ($images as $image) {
                 /** @var FileReference $image */
                 $file = $image->getOriginalResource()->getOriginalFile();
-                $folder = $file->getParentFolder();
-                $file->delete();
-                try {
-                    if ($folder->getFileCount([], true) === 0) {
-                        $folder->delete();
+
+                if ($file->exists()) {
+                    $folder = $file->getParentFolder();
+                    $file->delete();
+
+                    try {
+                        if ($folder->getFileCount([], true) === 0) {
+                            $folder->delete();
+                        }
+                    } catch (InsufficientFolderAccessPermissionsException $e) {
                     }
-                } catch (InsufficientFolderAccessPermissionsException $e) {
                 }
             }
         }
