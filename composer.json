@@ -25,9 +25,10 @@
 		}
 	],
 	"require": {
-		"typo3/cms-core": "^11",
-		"typo3/cms-form": "^11",
-		"wapplersystems/form_extended": "^11"
+		"typo3/cms-core": "^12",
+		"typo3/cms-extbase": "^12",
+		"typo3/cms-form": "^12",
+		"typo3/cms-frontend": "^12"
 	},
 	"autoload": {
 		"psr-4": {
@@ -38,5 +39,14 @@
 		"typo3/cms": {
 			"extension-key": "ws_bulletinboard"
 		}
+	},
+	"config": {
+		"allow-plugins": {
+			"typo3/cms-composer-installers": true,
+			"typo3/class-alias-loader": true
+		}
+	},
+	"require-dev": {
+		"ssch/typo3-rector": "^2.6"
 	}
 }

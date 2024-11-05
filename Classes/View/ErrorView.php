@@ -14,6 +14,8 @@ class ErrorView
      */
     protected $variablesMarker = ['errorMessage' => 'ERROR_MESSAGE', 'errorCode' => 'ERROR_CODE'];
 
+    protected $variables = [];
+
     /**
      * Renders the not found view
      *

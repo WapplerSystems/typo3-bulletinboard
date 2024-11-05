@@ -14,6 +14,25 @@
 				<source>Email</source>
 			</trans-unit>
 
+			<trans-unit id="element.fieldsetEntry.properties.label">
+				<source>Create new bulletinboard entry</source>
+			</trans-unit>
+			<trans-unit id="element.title.properties.label">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="element.images.properties.label">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="element.message.properties.label">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="element.privacyPolicyCheckbox.properties.label">
+				<source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
+			</trans-unit>
+			<trans-unit id="element.Form.renderingOptions.submitButtonLabel">
+				<source>Save</source>
+			</trans-unit>
+
 			<trans-unit id="xFromY" xml:space="preserve">
 				<source>%1$s from %2$s</source>
 			</trans-unit>
@@ -78,6 +97,16 @@
 			<trans-unit id="controller.mailfrmt">
 				<source>E-Mail format is not valid.</source>
 			</trans-unit>
+
+			<!-- Latest file -->
+			<trans-unit id="latest.heading">
+				<target>Bulletin board</target>
+			</trans-unit>
+			<trans-unit id="latest.visit">
+				<target>Visit bulletin board</target>
+			</trans-unit>
+			<!-- Latest file -->
+
 			<!-- Flex form labels -->
 
 
@@ -91,10 +120,6 @@
 				<source>Previous</source>
 			</trans-unit>
 
-
-			<trans-unit id="element.privacyPolicyCheckbox.properties.label">
-				<source><![CDATA[I have read and accepted the <a href="%s">privacy policy</a>.]]></source>
-			</trans-unit>
 
 			<trans-unit id="msg.entryDone">
 				<source>It may take a while until your bulletinboard entry appears in the list.</source>
@@ -141,11 +166,23 @@
 			<trans-unit id="btn.delete">
 				<source>Delete</source>
 			</trans-unit>
+			<trans-unit id="btn.edit">
+				<source>Edit</source>
+			</trans-unit>
 
 			<trans-unit id="msg.filesizeExceeded">
 				<source>The file size exceeds the maximum allowed size of %s.</source>
 			</trans-unit>
 
+			<trans-unit id="validation.error.1697065882">
+				<source>Value is not an array</source>
+			</trans-unit>
+			<trans-unit id="validation.error.1697065997">
+				<source>The number of files must be between %s and %s</source>
+			</trans-unit>
+			<trans-unit id="validation.error.1627065297">
+				<source>The combined size of your files exceeds the maximum allowed size of %s.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

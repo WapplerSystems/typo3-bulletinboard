@@ -2,28 +2,26 @@
 
 namespace WapplerSystems\WsBulletinboard\Controller;
 
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Cache\Exception\NoSuchCacheGroupException;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Context\Exception\AspectPropertyNotFoundException;
-use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\FrontendConfigurationManager;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
-use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException;
-use TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use WapplerSystems\WsBulletinboard\Domain\Model\Entry;
 use WapplerSystems\WsBulletinboard\Domain\Repository\EntryRepository;
+use WapplerSystems\WsBulletinboard\Event\AdjustBulletinboardControllerValuesEvent;
 
 
 /**
@@ -31,22 +29,17 @@ use WapplerSystems\WsBulletinboard\Domain\Repository\EntryRepository;
  */
 class BulletinboardController extends AbstractController
 {
-
-
     /**
      *
      * @param int $currentPage
      * @return ResponseInterface
-     * @throws InvalidSlotException
-     * @throws InvalidSlotReturnException
      */
     public function listAction(int $currentPage = 1): ResponseInterface
     {
-
         $this->getTypoScriptFrontendController()->addCacheTags(['ws_bulletinboard']);
 
         $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
-        $entries = $entryRepository->findSorted($this->settings);
+        $entries         = $entryRepository->findSorted($this->settings);
 
         $assignedValues = [
             'settings' => $this->settings
@@ -58,27 +51,27 @@ class BulletinboardController extends AbstractController
 
             $paginator = new QueryResultPaginator($entries, $currentPage, (int)($this->settings['paginate']['itemsPerPage'] ?? 10));
 
-            $pagination = new SimplePagination($paginator);
+            $pagination     = new SimplePagination($paginator);
             $assignedValues = array_merge($assignedValues, [
-                'paginator' => $paginator,
+                'paginator'  => $paginator,
                 'pagination' => $pagination,
-                'entries' => $paginator->getPaginatedItems(),
+                'entries'    => $paginator->getPaginatedItems(),
             ]);
         }
 
-        $assignedValues = $this->emitActionSignal(self::class, __FUNCTION__, $assignedValues);
+        $event = GeneralUtility::makeInstance(AdjustBulletinboardControllerValuesEvent::class, $assignedValues);
 
-        $this->view->assignMultiple($assignedValues);
+        $eventDispatcher = GeneralUtility::makeInstance(EventDispatcherInterface::class);
+        $eventDispatcher->dispatch($event);
+
+        $this->view->assignMultiple($event->getAssignedValues());
 
         return $this->htmlResponse();
     }
 
-
     /**
      *
      * @return ResponseInterface
-     * @throws InvalidSlotException
-     * @throws InvalidSlotReturnException
      */
     public function latestAction(): ResponseInterface
     {
@@ -86,16 +79,20 @@ class BulletinboardController extends AbstractController
         $this->getTypoScriptFrontendController()->addCacheTags(['ws_bulletinboard']);
 
         $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
-        $entries = $entryRepository->findSorted($this->settings);
+        $entries         = $entryRepository->findSorted($this->settings);
 
         $assignedValues = [
             'settings' => $this->settings
         ];
+
         $assignedValues['entries'] = $entries->toArray();
 
-        $assignedValues = $this->emitActionSignal(self::class, __FUNCTION__, $assignedValues);
+        $event = GeneralUtility::makeInstance(AdjustBulletinboardControllerValuesEvent::class, $assignedValues);
 
-        $this->view->assignMultiple($assignedValues);
+        $eventDispatcher = GeneralUtility::makeInstance(EventDispatcherInterface::class);
+        $eventDispatcher->dispatch($event);
+
+        $this->view->assignMultiple($event->getAssignedValues());
 
         return $this->htmlResponse();
     }
@@ -107,10 +104,9 @@ class BulletinboardController extends AbstractController
      */
     public function newAction(): ResponseInterface
     {
-
-        $configurationManager = GeneralUtility::makeInstance(FrontendConfigurationManager::class);
+        $configurationManager                     = GeneralUtility::makeInstance(FrontendConfigurationManager::class);
         $this->settings['frameworkConfiguration'] = $configurationManager->getConfiguration();
-        $this->settings['pageUid'] = $this->getTypoScriptFrontendController()->id;
+        $this->settings['pageUid']                = $this->getTypoScriptFrontendController()->id;
 
         $this->view->assignMultiple([
             'settings' => $this->settings,
@@ -119,7 +115,6 @@ class BulletinboardController extends AbstractController
         return $this->htmlResponse();
     }
 
-
     public function doneAction(): ResponseInterface
     {
         return $this->htmlResponse();
@@ -127,13 +122,12 @@ class BulletinboardController extends AbstractController
 
     /**
      * @param string $action_key
-     * @throws StopActionException
      * @throws IllegalObjectTypeException
      */
     public function declineAction(string $action_key): ResponseInterface
     {
         $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
-        $entry = $entryRepository->findOneByActionKey($action_key);
+        $entry           = $entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
             return new ForwardResponse('entryNotFound');
@@ -152,7 +146,6 @@ class BulletinboardController extends AbstractController
 
     /**
      * @param string $action_key
-     * @throws StopActionException
      * @throws IllegalObjectTypeException
      * @throws UnknownObjectException
      * @throws NoSuchCacheGroupException
@@ -160,7 +153,7 @@ class BulletinboardController extends AbstractController
     public function confirmAction(string $action_key): ResponseInterface
     {
         $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
-        $entry = $entryRepository->findOneByActionKey($action_key);
+        $entry           = $entryRepository->findOneByActionKey($action_key);
 
         if ($entry === null) {
             return new ForwardResponse('entryNotFound');
@@ -179,7 +172,6 @@ class BulletinboardController extends AbstractController
 
     public function entryNotFoundAction(): ResponseInterface
     {
-
         return $this->htmlResponse();
     }
 
@@ -187,25 +179,14 @@ class BulletinboardController extends AbstractController
     /**
      * @param Entry $entry
      * @return ResponseInterface
-     * @throws StopActionException
      * @throws NoSuchCacheGroupException
      * @throws AspectNotFoundException
      * @throws AspectPropertyNotFoundException
      */
-    public function deleteEntryAction(Entry $entry): ResponseInterface
+    public function deleteAction(Entry $entry): ResponseInterface
     {
-
-        $userAspect = GeneralUtility::makeInstance(Context::class)->getAspect('frontend.user');
-        if (!$userAspect->isLoggedIn() || $entry->getFeUser()->getUid() !== $userAspect->get('id')) {
-
-            $this->addFlashMessage(
-                LocalizationUtility::translate('msg.notOwner', 'ws_bulletinboard'),
-                LocalizationUtility::translate('title.error', 'ws_bulletinboard'),
-                AbstractMessage::ERROR,
-                true
-            );
-
-            $this->redirectToUri($this->uriBuilder->setTargetPageUid($this->getTypoScriptFrontendController()->id)->buildFrontendUri());
+        if (!$this->checkWriteAccess($entry)) {
+            return $this->redirectToUri($this->uriBuilder->setTargetPageUid($this->getTypoScriptFrontendController()->id)->buildFrontendUri());
         }
 
         $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
@@ -215,14 +196,13 @@ class BulletinboardController extends AbstractController
         $cacheManager->flushCachesInGroupByTag('pages', 'ws_bulletinboard');
 
         $this->addFlashMessage(
-            LocalizationUtility::translate('msg.successfulDeleted', 'ws_bulletinboard'),
-            LocalizationUtility::translate('title.success', 'ws_bulletinboard'),
-            AbstractMessage::OK,
+            LocalizationUtility::translate('msg.successfulDeleted', 'WsBulletinboard'),
+            LocalizationUtility::translate('title.success', 'WsBulletinboard'),
+            \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK,
             true
         );
 
-        $this->redirectToUri($this->uriBuilder->setTargetPageUid($this->getTypoScriptFrontendController()->id)->buildFrontendUri());
-
+        return $this->redirectToUri($this->uriBuilder->setTargetPageUid($this->getTypoScriptFrontendController()->id)->buildFrontendUri());
     }
 
 
@@ -234,22 +214,39 @@ class BulletinboardController extends AbstractController
         return $GLOBALS['TSFE'];
     }
 
-
-    /**
-     * Emits signal for various actions
-     *
-     * @param string $class the class name
-     * @param string $signalName name of the signal slot
-     * @param array $signalArguments arguments for the signal slot
-     *
-     * @return array
-     * @throws InvalidSlotException
-     * @throws InvalidSlotReturnException
-     */
-    protected function emitActionSignal(string $class, string $signalName, array $signalArguments): array
+    public function editAction(Entry $entry): ResponseInterface
     {
-        $signalArguments['extendedVariables'] = [];
-        return $this->signalSlotDispatcher->dispatch($class, $signalName, $signalArguments);
+        if (!$this->checkWriteAccess($entry)) {
+            return $this->redirectToUri($this->uriBuilder->setTargetPageUid($this->getTypoScriptFrontendController()->id)->buildFrontendUri());
+        }
+
+        $configurationManager                     = GeneralUtility::makeInstance(FrontendConfigurationManager::class);
+        $this->settings['frameworkConfiguration'] = $configurationManager->getConfiguration();
+        $this->settings['pageUid']                = $this->getTypoScriptFrontendController()->id;
+
+        $this->view->assignMultiple([
+            'settings' => $this->settings,
+        ]);
+
+        return $this->htmlResponse();
     }
 
+    protected function checkWriteAccess(Entry $entry): bool
+    {
+        $userAspect = GeneralUtility::makeInstance(Context::class)->getAspect('frontend.user');
+
+        if (!$userAspect->isLoggedIn() || $entry->getFeUser()->getUid() !== $userAspect->get('id')) {
+
+            $this->addFlashMessage(
+                LocalizationUtility::translate('msg.notOwner', 'WsBulletinboard'),
+                LocalizationUtility::translate('title.error', 'WsBulletinboard'),
+                \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::ERROR,
+                true
+            );
+
+            return false;
+        }
+
+        return true;
+    }
 }

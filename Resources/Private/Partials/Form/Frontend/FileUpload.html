@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" xmlns:wsgb="http://typo3.org/ns/WapplerSystems/WsBulletinboard/ViewHelpers" data-namespace-typo3-fluid="true">
+<formvh:renderRenderable renderable="{element}">
+    <f:render partial="Field/Field" arguments="{element: element}" contentAs="elementContent">
+        <wsgb:form.multiUploadedResource
+            property="{element.identifier}"
+            as="resource"
+            id="{element.uniqueIdentifier}"
+            class="{element.properties.elementClassAttribute}"
+            errorClass="{element.properties.elementErrorClassAttribute}"
+            additionalAttributes="{formvh:translateElementProperty(element: element, property: 'fluidAdditionalAttributes')}"
+            accept="{element.properties.allowedMimeTypes}"
+            multiple="{element.properties.multiple ? 'multiple' : ''}"
+        >
+            <f:if condition="{isMultiResource}">
+                <f:then>
+                    <f:for each="{resource}" as="singleResource" key="key">
+                        <div class="bulletinboard-preview" id="{element.uniqueIdentifier}-preview-{key+1}" data-index="{key+1}">
+                            <a href="#" class="delete">X</a>
+                            <f:image maxWidth="100" src="{singleResource.originalResource.originalFile.uid}" alt="{singleResource.originalResource.originalFile.name}"></f:image>
+                            {singleResource.originalResource.originalFile.name}
+                        </div>
+                    </f:for>
+                </f:then>
+                <f:else>
+                    <f:if condition="{resource}">
+                        <div id="{element.uniqueIdentifier}-preview">
+                            {resource.originalResource.originalFile.name}
+                        </div>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </wsgb:form.multiUploadedResource>
+    </f:render>
+</formvh:renderRenderable>
+</html>

@@ -15,12 +15,14 @@
 			</trans-unit>
 
 			<trans-unit id="wsbulletinboard_form">
-				<target>Schwarzes Brett: Formular</target>
+				<target>Bulletin board: Formular</target>
 			</trans-unit>
 			<trans-unit id="wsbulletinboard_list">
-				<target>Schwarzes Brett: Liste</target>
+				<target>Bulletin board: Liste</target>
 			</trans-unit>
-
+			<trans-unit id="wsbulletinboard_latest">
+				<target>Bulletin board: Neueste Einträge</target>
+			</trans-unit>
 
 			<trans-unit id="flexforms_tab.general">
 				<source>General settings</source>
@@ -58,6 +60,12 @@
 			</trans-unit>
 			<trans-unit id="flexform.oldFirst">
 				<target>Die ältesten zu erst</target>
+			</trans-unit>
+			<trans-unit id="flexform.newEditPid">
+				<target>Neu/Bearbeiten-Seite</target>
+			</trans-unit>
+			<trans-unit id="flexform.newEditPid.description">
+				<target>Die Seite muss das Form-Plugin dieser Extension enthalten</target>
 			</trans-unit>
 			<trans-unit id="flexform.verification.email.senderName">
 				<target>Absendername der Bestätigungs-E-Mail</target>
@@ -121,23 +129,31 @@
 
 
 			<trans-unit id="tsconfig.wizard.WsBulletinboardForm.title">
-				<source>WapplerSystems bulletin board - Form</source>
-				<target>WapplerSystems schwarzes Brett - Formular</target>
+				<source>WapplerSystems Bulletin board - New/Edit Entry Form</source>
+				<target>WapplerSystems Bulletin board - Formular zum Erstellen und Bearbeiten von Einträgen</target>
 			</trans-unit>
 			<trans-unit id="tsconfig.wizard.WsBulletinboardForm.description">
-				<source>This allows the visitor to write a new entry.</source>
-				<target>Dies ermöglicht dem Besucher, einen neuen Eintrag zu schreiben.</target>
+				<source>This allows the visitor to write a new entry or editing existing ones.</source>
+				<target>Dies ermöglicht dem Besucher, einen neuen Eintrag zu schreiben bzw. bestehende zu bearbeiten.</target>
 			</trans-unit>
 
 			<trans-unit id="tsconfig.wizard.WsBulletinboardList.title">
 				<source>WapplerSystems Bulletin board - List</source>
-				<target>WapplerSystems schwarzes Brett - Liste</target>
+				<target>WapplerSystems Bulletin board - Liste</target>
 			</trans-unit>
 			<trans-unit id="tsconfig.wizard.WsBulletinboardList.description">
 				<source>This outputs the entries.</source>
-				<target>Dies gibt die Einträge.</target>
+				<target>Gibt die Einträge aus.</target>
 			</trans-unit>
 
+			<trans-unit id="tsconfig.wizard.WsBulletinboardLatest.title">
+				<source>WapplerSystems Bulletin board - Latest</source>
+				<target>WapplerSystems Bulletin board - Neueste Einträge</target>
+			</trans-unit>
+			<trans-unit id="tsconfig.wizard.WsBulletinboardLatest.description">
+				<source>This outputs the latest X entries.</source>
+				<target>Gibt die neuesten X Einträge aus.</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

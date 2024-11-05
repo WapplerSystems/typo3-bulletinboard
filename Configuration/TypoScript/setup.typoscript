@@ -34,12 +34,24 @@ plugin.tx_wsbulletinboard {
 }
 
 page {
-  includeCSS {
-    wsbulletinboard = EXT:ws_bulletinboard/Resources/Public/CSS/styles.css
-  }
-
   includeJSFooter {
-    wsbulletinboard = EXT:ws_bulletinboard/Resources/Public/JavaScript/jquery.bsTextCounter.js
+    wsbulletinboard = EXT:ws_bulletinboard/Resources/Public/JavaScript/Bulletinboard.js
   }
 
+}
+
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            520 = EXT:ws_bulletinboard/Configuration/Yaml/FormSetup.yaml
+        }
+    }
+}
+
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            520 = EXT:ws_bulletinboard/Configuration/Yaml/FormSetup.yaml
+        }
+    }
 }

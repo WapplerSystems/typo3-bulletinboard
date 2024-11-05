@@ -39,7 +39,7 @@ class EntryRepository extends Repository
         return $query->execute()->getFirst();
     }
 
-    public function removeOlderThan($timestamp) {
+    public function removeOlderThan($timestamp): void {
 
         $query = $this->createQuery();
         $query->getQuerySettings()->setIgnoreEnableFields(true);
@@ -59,22 +59,25 @@ class EntryRepository extends Repository
      * @return void
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      */
-    public function remove($object)
+    public function remove($object): void
     {
 
         $images = $object->getImages();
-        $folder = null;
         if ($images) {
             foreach ($images as $image) {
                 /** @var FileReference $image */
                 $file = $image->getOriginalResource()->getOriginalFile();
-                $folder = $file->getParentFolder();
-                $file->delete();
-                try {
-                    if ($folder->getFileCount([], true) === 0) {
-                        $folder->delete();
+
+                if ($file->exists()) {
+                    $folder = $file->getParentFolder();
+                    $file->delete();
+
+                    try {
+                        if ($folder->getFileCount([], true) === 0) {
+                            $folder->delete();
+                        }
+                    } catch (InsufficientFolderAccessPermissionsException $e) {
                     }
-                } catch (InsufficientFolderAccessPermissionsException $e) {
                 }
             }
         }

@@ -8,16 +8,13 @@ $EM_CONF[$_EXTKEY] = [
     'author_email' => '',
     'author_company' => 'WapplerSystems',
     'state' => 'stable',
-    'internal' => '',
-    'uploadfolder' => '0',
-    'createDirs' => '',
-    'clearCacheOnLoad' => 0,
     'version' => '11.0.1',
     'constraints' => [
         'depends' => [
-            'typo3' => '11.5.0-11.5.99',
-            'form' => '11.5.0-11.5.99',
-            'form_extended' => '11.0.0-11.99.99'
+            'typo3' => '12.4.0-12.4.99',
+            'form' => '12.4.0-12.4.99',
+            'extbase' => '12.4.0-12.4.99',
+            'frontend' => '12.4.0-12.4.99',
         ],
         'conflicts' => [
         ],

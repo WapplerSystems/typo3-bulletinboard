@@ -23,15 +23,18 @@ use TYPO3\CMS\Form\Domain\Model\FormElements\Section;
 use TYPO3\CMS\Form\Domain\Renderer\FluidFormRenderer;
 use TYPO3\CMS\Form\Mvc\Validation\FileSizeValidator;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
-use WapplerSystems\FormExtended\Domain\Finishers\AttachUploadsToObjectFinisher;
-use WapplerSystems\FormExtended\Mvc\Validation\FileCollectionSizeValidator;
-use WapplerSystems\FormExtended\Mvc\Validation\FileCountValidator;
+use WapplerSystems\WsBulletinboard\Domain\Finishers\AttachUploadsToObjectFinisher;
+use WapplerSystems\WsBulletinboard\Domain\Model\Entry;
+use WapplerSystems\WsBulletinboard\Domain\Repository\EntryRepository;
+use WapplerSystems\WsBulletinboard\Event\AdjustBulletinboardFormFieldsEvent;
+use WapplerSystems\WsBulletinboard\Event\AdjustBulletinboardSaveToDatabaseFinisherOptionsEvent;
 use WapplerSystems\WsBulletinboard\Exception\MissingConfigurationException;
+use WapplerSystems\WsBulletinboard\Mvc\Validation\FileCollectionSizeValidator;
+use WapplerSystems\WsBulletinboard\Mvc\Validation\FileCountValidator;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 class BulletinboardFormFactory extends AbstractFormFactory
 {
-
-
     /**
      * @param array $configuration
      * @param string|null $prototypeName
@@ -45,13 +48,26 @@ class BulletinboardFormFactory extends AbstractFormFactory
      */
     public function build(array $configuration, string $prototypeName = null): FormDefinition
     {
+        // get current entry
+        $currentEntry = null;
+        $currentParams = $GLOBALS['TYPO3_REQUEST']->getQueryParams();
+
+        if (($currentParams['tx_wsbulletinboard_list']['action'] ?? '') === 'edit') {
+            $currentEntryId = $currentParams['entry'] ?? $currentParams['tx_wsbulletinboard_list']['entry'] ?? 0;
+
+            if ($currentEntryId) {
+                $entryRepository = GeneralUtility::makeInstance(EntryRepository::class);
+                $currentEntry = $entryRepository->findByUid($currentEntryId);
+            }
+        }
 
         $configurationService = GeneralUtility::makeInstance(ConfigurationService::class);
         $prototypeConfiguration = $configurationService->getPrototypeConfiguration('bulletinboard');
 
         $formDefinition = GeneralUtility::makeInstance(FormDefinition::class, 'bulletinboardEntryForm', $prototypeConfiguration);
         $formDefinition->setRendererClassName(FluidFormRenderer::class);
-        $formDefinition->setRenderingOption('controllerAction', 'new');
+        $formDefinition->setRenderingOption('controllerAction', $currentEntry === null ? 'new' : 'edit');
+        $formDefinition->setRenderingOption('additionalParams', ['entry' => $currentEntry?->getUid()]);
         $formDefinition->setRenderingOption('submitButtonLabel', 'Submit');
 
 
@@ -64,12 +80,17 @@ class BulletinboardFormFactory extends AbstractFormFactory
 
         $actionKey = GeneralUtility::makeInstance(Random::class)->generateRandomHexString(30);
 
-
         $context = GeneralUtility::makeInstance(Context::class);
 
-        /** @var SaveToDatabaseFinisher $saveToDatabaseFinisher */
-        $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
-        $saveToDatabaseFinisher->setOptions([
+        $recipients = [];
+        $recipientsFlexform = $configuration['verification']['recipients'] ?? [];
+
+        foreach ($recipientsFlexform as $recipient) {
+          $recipients[$recipient['container']['address']] = $recipient['container']['name'];
+        }
+
+        // save to database finisher
+        $options = [
             'table' => 'tx_wsbulletinboard_domain_model_entry',
             'mode' => 'insert',
             'databaseColumnMappings' => [
@@ -86,7 +107,7 @@ class BulletinboardFormFactory extends AbstractFormFactory
                     'value' => $actionKey,
                 ],
                 'hidden' => [
-                    'value' => ($configuration['automaticApproval'] === '1') ? 0 : 1,
+                    'value' => ($configuration['automaticApproval'] === '1' || empty($recipients)) ? 0 : 1,
                 ],
                 'fe_user' => [
                     'value' => $context->getPropertyFromAspect('frontend.user', 'id'),
@@ -95,23 +116,35 @@ class BulletinboardFormFactory extends AbstractFormFactory
                     'value' => 0,
                 ],
             ],
-
             'elements' => [
                 'title' => [
                     'mapOnDatabaseColumn' => 'title',
-                ],
-                'name' => [
-                    'mapOnDatabaseColumn' => 'name',
                 ],
                 'message' => [
                     'mapOnDatabaseColumn' => 'message',
                 ],
             ]
-        ]);
+        ];
+
+        if ($currentEntry !== null) {
+            $options['mode'] = 'update';
+            $options['whereClause'] = [
+                'uid' => $currentEntry->getUid(),
+            ];
+        }
+
+        $event = GeneralUtility::makeInstance(AdjustBulletinboardSaveToDatabaseFinisherOptionsEvent::class, $options);
+
+        $eventDispatcher = GeneralUtility::makeInstance(EventDispatcherInterface::class);
+        $eventDispatcher->dispatch($event);
+
+        /** @var SaveToDatabaseFinisher $saveToDatabaseFinisher */
+        $saveToDatabaseFinisher = $formDefinition->createFinisher('SaveToDatabase');
+        $saveToDatabaseFinisher->setOptions($event->getOptions());
 
         /** @var AttachUploadsToObjectFinisher $attachUploadsToObjectFinisher */
         $attachUploadsToObjectFinisher = $formDefinition->createFinisher('AttachUploadsToObject');
-        $attachUploadsToObjectFinisher->setOptions([
+        $options = [
             'elements' => [
                 'images' => [
                     'table' => 'tx_wsbulletinboard_domain_model_entry',
@@ -119,18 +152,14 @@ class BulletinboardFormFactory extends AbstractFormFactory
                     'lastInsertId' => true,
                 ],
             ]
-        ]);
+        ];
 
-
-        $recipients = [];
-        $recipientsFlexform = $configuration['verification']['recipients'];
-        foreach ($recipientsFlexform as $recipient) {
-            $recipients[$recipient['container']['address']] = $recipient['container']['name'];
+        if ($currentEntry !== null) {
+            $options['elements']['images']['uid'] = $currentEntry->getUid();
+            unset($options['elements']['images']['lastInsertId']);
         }
 
-        if (count($recipients) === 0) {
-            throw new MissingConfigurationException('No recipients set', 1627843942);
-        }
+        $attachUploadsToObjectFinisher->setOptions($options);
 
         $defaultFrom = MailUtility::getSystemFrom();
         if (isset($defaultFrom[0])) {
@@ -167,9 +196,10 @@ class BulletinboardFormFactory extends AbstractFormFactory
             ])
             ->buildFrontendUri();
 
-        /** @var EmailFinisher $emailFinisher */
-        $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
-        $emailFinisher->setOptions([
+        if (!empty($recipients)) {
+          /** @var EmailFinisher $emailFinisher */
+          $emailFinisher = $formDefinition->createFinisher('EmailToReceiver');
+          $emailFinisher->setOptions([
             'subject' => $configuration['verification']['email']['subject'],
             'recipients' => $recipients,
             'senderName' => $defaultFrom[array_key_first($defaultFrom)],
@@ -178,14 +208,14 @@ class BulletinboardFormFactory extends AbstractFormFactory
             'attachUploads' => false,
             'templateName' => 'Notification',
             'templateRootPaths' => [
-                50 => 'EXT:ws_bulletinboard/Resources/Private/Templates/Email/',
+              50 => 'EXT:ws_bulletinboard/Resources/Private/Templates/Email/',
             ],
             'variables' => [
-                'confirmationUrl' => $confirmationUrl,
-                'declineUrl' => $declineUrl,
+              'confirmationUrl' => $confirmationUrl,
+              'declineUrl' => $declineUrl,
             ]
-        ]);
-
+          ]);
+        }
 
         /** @var RedirectFinisher $redirectFinisher */
         $redirectFinisher = $formDefinition->createFinisher('Redirect');
@@ -210,19 +240,42 @@ class BulletinboardFormFactory extends AbstractFormFactory
             ]
         ]]);
 
+        $this->addTitleElement($fieldset, $currentEntry);
+        $this->addImagesElement($fieldset, $configuration, $currentEntry);
+        $this->addMessageField($fieldset, $configuration, $currentEntry);
+
+        $event = GeneralUtility::makeInstance(AdjustBulletinboardFormFieldsEvent::class, $fieldset, $configuration, $currentEntry);
+
+        $eventDispatcher = GeneralUtility::makeInstance(EventDispatcherInterface::class);
+        $eventDispatcher->dispatch($event);
+
+        $this->triggerFormBuildingFinished($formDefinition);
+
+        return $formDefinition;
+    }
+
+    protected function addTitleElement(Section $fieldset, Entry $entry = null): void
+    {
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('title', 'Text');
         $element->setLabel('Title');
         $element->setProperty('required', true);
-        $element->addValidator(new StringLengthValidator(['maximum' => 500]));
-        $element->addValidator(new NotEmptyValidator());
+        $element->setDefaultValue($entry?->getTitle());
 
+        $stringLengthValidator = new StringLengthValidator();
+        $stringLengthValidator->setOptions(['maximum' => 500]);
+
+        $element->addValidator($stringLengthValidator);
+        $element->addValidator(new NotEmptyValidator());
+    }
+
+    protected function addImagesElement(Section $fieldset, array $configuration, Entry $entry = null): void
+    {
         $element = $fieldset->createElement('images', 'FileUpload');
         $element->setLabel('Images');
-        $element->setProperty('multiple', true);
-        $element->setProperty('allowedMimeTypes', ['image/jpg', 'image/jpeg']);
+        $element->setProperty('allowedMimeTypes', ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']);
         $element->setProperty('saveToFileMount', $configuration['storageFolder']);
-
+        $element->setDefaultValue($entry?->getImages()->toArray());
 
         $maxUploadFileSizeString = trim($configuration['fields']['images']['maxUploadFileSize'] ?? '');
         $maxUploadFileSize = 0;
@@ -235,43 +288,58 @@ class BulletinboardFormFactory extends AbstractFormFactory
         $fluidAdditionalAttributes = [
             'data-min-filesize' => 0,
             'data-max-filesize' => $maxUploadFileSize * 1024,
-            'data-msg-filesize-exceeded' => LocalizationUtility::translate('msg.filesizeExceeded', 'ws_bulletinboard', [$this->bytesToString($maxUploadFileSize * 1024)]),
+            'data-msg-filesize-exceeded' => LocalizationUtility::translate('msg.filesizeExceeded', 'WsBulletinboard', [$this->bytesToString($maxUploadFileSize * 1024)]),
         ];
 
         $maxFiles = (int)($configuration['fields']['images']['maxFiles'] ?? 0);
+        $element->setProperty('multiple', $maxFiles !== 1);
+
         $maxSizePerFile = 0;
         $maxSizePerFileString = ($configuration['fields']['images']['maxSizePerFile'] ?? '');
+
         if ($maxSizePerFileString !== '') {
             $maxSizePerFile = $this->humanReadableToBytes($maxSizePerFileString) / 1024;
         }
 
         if ($maxSizePerFile > 0) {
-            //$element->addValidator(new FileSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
+            $fileSizeValidator = new FileSizeValidator();
+            $fileSizeValidator->setOptions(['minimum' => '0K', 'maximum' => $maxUploadFileSize . 'K']);
+            $element->addValidator($fileSizeValidator);
             $fluidAdditionalAttributes['data-min-filesize-per-file'] = 0;
             $fluidAdditionalAttributes['data-max-filesize-per-file'] = $maxSizePerFile * 1024;
         }
-        $element->addValidator(new FileCollectionSizeValidator(['maximum' => $maxUploadFileSize . 'K']));
+
+        $fileCollectionSizeValidator = new FileCollectionSizeValidator();
+        $fileCollectionSizeValidator->setOptions(['minimum' => '0K', 'maximum' => $maxUploadFileSize . 'K']);
+
+        $element->addValidator($fileCollectionSizeValidator);
         if ($maxFiles > 0) {
-            //$element->addValidator(new FileCountValidator(['maximum' => 4]));
+            $fileCountValidator = new FileCountValidator();
+            $fileCountValidator->setOptions(['minimum' => 0, 'maximum' => $maxFiles]);
+            $element->addValidator($fileCountValidator);
             $fluidAdditionalAttributes['data-min-files'] = 0;
             $fluidAdditionalAttributes['data-max-files'] = $maxFiles;
-            $fluidAdditionalAttributes['data-msg-files-limit'] = LocalizationUtility::translate('msg.filesLimit', 'ws_bulletinboard', [0, $maxFiles]);
+            $fluidAdditionalAttributes['data-msg-files-limit'] = LocalizationUtility::translate('msg.filesLimit', 'WsBulletinboard', [0, $maxFiles]);
         }
         $element->setProperty('fluidAdditionalAttributes', $fluidAdditionalAttributes);
+    }
 
+    protected function addMessageField(Section $fieldset, array $configuration, Entry $entry = null): void
+    {
         /** @var GenericFormElement $element */
         $element = $fieldset->createElement('message', 'Textarea');
         $element->setLabel('Message');
         $element->setProperty('rows', '4');
         $element->setProperty('elementClassAttribute', 'form-control-bstextcounter');
         $element->setProperty('fluidAdditionalAttributes', ['maxlength' => (int)($configuration['fields']['message']['maxCharacters'] ?? PHP_INT_MAX), 'minlength' => (int)($configuration['fields']['message']['minCharacters'] ?? 0)]);
+        $element->setDefaultValue($entry?->getMessage());
+
         $element->addValidator(new NotEmptyValidator());
-        $element->addValidator(new StringLengthValidator(['minimum' => (int)($configuration['fields']['message']['minCharacters'] ?? 50), 'maximum' => (int)($configuration['fields']['message']['maxCharacters'] ?? PHP_INT_MAX)]));
 
+        $stringLengthValidator = new StringLengthValidator();
+        $stringLengthValidator->setOptions(['minimum' => (int)($configuration['fields']['message']['minCharacters'] ?? 50), 'maximum' => (int)($configuration['fields']['message']['maxCharacters'] ?? PHP_INT_MAX)]);
 
-        $this->triggerFormBuildingFinished($formDefinition);
-
-        return $formDefinition;
+        $element->addValidator($stringLengthValidator);
     }
 
     /**

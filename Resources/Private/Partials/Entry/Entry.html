@@ -16,7 +16,6 @@
             </f:if>
 
             <div class="contact">
-
                 <f:if condition="{entry.feUser.firstName} || {entry.feUser.lastName}">
                     <f:then>
                         {entry.feUser.firstName} {entry.feUser.lastName}
@@ -34,32 +33,34 @@
                         <i>keine eMail-Adresse angegeben</i>
                     </f:else>
                 </f:if>
-
-
             </div>
 
             <f:security.ifAuthenticated>
                 <wb:userOwnsEntry entry="{entry}">
-                    <f:link.action action="deleteEntry" arguments="{entry:entry}">{f:translate(key: 'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang.xlf:btn.delete')}</f:link.action>
-                </wb:userOwnsEntry>
+                    <f:link.action action="edit" arguments="{entry:entry}" pageUid="{settings.newUpdatePid}">
+                        {f:translate(key:'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang.xlf:btn.edit')}
+                    </f:link.action>
 
+                    <f:link.action action="delete" arguments="{entry:entry}">
+                        {f:translate(key:'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang.xlf:btn.delete')}
+                    </f:link.action>
+                </wb:userOwnsEntry>
             </f:security.ifAuthenticated>
 
         </div>
 
         <div class="card-body">
-
             <f:if condition="{entry.images}">
                 <div class="wsbulletinboard__images row mb-3">
                     <f:for each="{entry.images}" as="image">
                         <div class="wsbulletinboard__images__image col-12 col-md-4">
-                            <ce:link.clickEnlarge image="{image.originalResource}" configuration="{settings.media.popup}">
-                                <f:image image="{image}" maxWidth="400" maxHeight="300" class="img-fluid" />
+                            <ce:link.clickEnlarge image="{image.originalResource}"
+                                                  configuration="{settings.media.popup}">
+                                <f:image image="{image}" maxWidth="400" maxHeight="300" class="img-fluid"/>
                             </ce:link.clickEnlarge>
                         </div>
                     </f:for>
                 </div>
-
             </f:if>
 
             <f:format.html>{entry.message -> f:format.nl2br()}</f:format.html>
@@ -68,17 +69,16 @@
 </f:section>
 
 <f:section name="Latest">
-
     <div class="wsbulletinboard__latest__item mb-3">
-        <p class="mb-0"><f:link.page pageUid="{settings.listPage}" section="#bb-{entry.uid}">{entry.title}</f:link.page> </p>
+        <p class="mb-0">
+            <f:link.page pageUid="{settings.listPage}" section="#bb-{entry.uid}">{entry.title}</f:link.page>
+        </p>
         <f:if condition="{entry.tstamp}">
             <small class="text-muted">
                 <f:format.date format="{f:translate(key:'dateTimeFormat')}">{entry.tstamp}</f:format.date>
             </small>
         </f:if>
-
     </div>
 </f:section>
-
 
 </html>

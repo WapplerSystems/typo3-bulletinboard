@@ -7,6 +7,9 @@ services:
   WapplerSystems\WsBulletinboard\:
     resource: '../Classes/*'
 
+  WapplerSystems\WsBulletinboard\Form\Factory\BulletinboardFormFactory:
+    public: true
+
   WapplerSystems\WsBulletinboard\Command\RemoveOldEntriesCommand:
     tags:
       - name: 'console.command'

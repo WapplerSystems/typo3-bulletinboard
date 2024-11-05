@@ -66,7 +66,7 @@
 
 			<!-- Latest file -->
 			<trans-unit id="latest.heading">
-				<target>Bulletin board</target>
+				<target>Schwarzes Brett</target>
 			</trans-unit>
 			<trans-unit id="latest.visit">
 				<target>Schwarzes Brett besuchen</target>
@@ -187,7 +187,7 @@
 				<target><![CDATA[Ich habe die <a href="%s">Datenschutzbestimmungen</a> gelesen und akzeptiere sie.]]></target>
 			</trans-unit>
 			<trans-unit id="element.Form.renderingOptions.submitButtonLabel">
-				<target>Eintragen</target>
+				<target>Speichern</target>
 			</trans-unit>
 
 
@@ -240,6 +240,10 @@
 				<source>Decline</source>
 				<target>Ablehnen</target>
 			</trans-unit>
+			<trans-unit id="btn.edit">
+				<source>Edit</source>
+				<target>Bearbeiten</target>
+			</trans-unit>
 			<trans-unit id="btn.delete">
 				<source>Delete</source>
 				<target>Löschen</target>
@@ -248,6 +252,18 @@
 			<trans-unit id="msg.filesizeExceeded">
 				<source>The file size exceeds the maximum allowed size of %s.</source>
 				<target>Die maximal erlaubte Dateigröße von %s wurde überschritten.</target>
+			</trans-unit>
+
+			<trans-unit id="validation.error.1697065882">
+				<source>Value is not an array</source>
+				<target>Der Feldwert ist kein Array</target>
+			</trans-unit>
+			<trans-unit id="validation.error.1697065997">
+				<source>The number of files must be between %s and %s</source>
+				<target>Sie dürfen zwischen %s und %s Dateien hochladen</target>
+			</trans-unit>
+			<trans-unit id="validation.error.1627065297">
+				<source>Die Gesamtgröße der hochgeladenen Dateien von %s wurde überschritten.</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -4,6 +4,7 @@ namespace WapplerSystems\WsBulletinboard\Hooks;
 
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Resource\Exception\InsufficientFolderAccessPermissionsException;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -11,7 +12,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class FileReferenceHook
 {
 
-    public function processCmdmap_preProcess($command, $table, $id, $fieldArray, $dataHandler, $pasteUpdate)
+    public function processCmdmap_preProcess($command, $table, $id, $fieldArray, $dataHandler, $pasteUpdate): void
     {
 
         if ($table === 'tx_wsbulletinboard_domain_model_entry' && $command === 'delete') {
@@ -31,8 +32,16 @@ class FileReferenceHook
             if (is_array($rows)) {
                 foreach ($rows as $row) {
                     $file = $resourceFactory->getFileObject($row['uid_local']);
-                    if ($file instanceof File) {
+                    if ($file instanceof File && $file->exists()) {
+                        $folder = $file->getParentFolder();
                         $file->delete();
+
+                        try {
+                            if ($folder->getFileCount([], true) === 0) {
+                                $folder->delete();
+                            }
+                        } catch (InsufficientFolderAccessPermissionsException $e) {
+                        }
                     }
                 }
             }

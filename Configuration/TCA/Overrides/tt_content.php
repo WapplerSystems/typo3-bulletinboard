@@ -3,25 +3,28 @@
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 call_user_func(function () {
     ExtensionUtility::registerPlugin(
-        'WapplerSystems.ws_bulletinboard',
+        'WsBulletinboard',
         'List',
-        'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:wsbulletinboard_list'
+        'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:wsbulletinboard_list',
+        'EXT:ws_bulletinboard/Resources/Public/Icons/ws_bulletinboard.svg'
     );
 
     ExtensionUtility::registerPlugin(
-        'WapplerSystems.ws_bulletinboard',
+        'WsBulletinboard',
         'Latest',
-        'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:wsbulletinboard_latest'
+        'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:wsbulletinboard_latest',
+        'EXT:ws_bulletinboard/Resources/Public/Icons/ws_bulletinboard.svg'
     );
 
     ExtensionUtility::registerPlugin(
-        'WapplerSystems.ws_bulletinboard',
+        'WsBulletinboard',
         'Form',
-        'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:wsbulletinboard_form'
+        'LLL:EXT:ws_bulletinboard/Resources/Private/Language/locallang_db.xlf:wsbulletinboard_form',
+      'EXT:ws_bulletinboard/Resources/Public/Icons/ws_bulletinboard.svg'
     );
 
     /* Flexform setting  */

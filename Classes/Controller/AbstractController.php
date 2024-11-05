@@ -93,7 +93,7 @@ class AbstractController extends ActionController implements LoggerAwareInterfac
                     'details' => str_replace('%', '%%', $logMessage),
                     'log_data' => empty($data) ? '' : serialize($data),
                     'IP' => (string)GeneralUtility::getIndpEnv('REMOTE_ADDR'),
-                    'tstamp' => $GLOBALS['EXEC_TIME'],
+                    'tstamp' => \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Context\Context::class)->getPropertyFromAspect('date', 'timestamp'),
                     'workspace' => $workspace
                 ]
             );

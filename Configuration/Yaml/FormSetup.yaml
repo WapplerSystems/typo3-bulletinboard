@@ -1,3 +1,6 @@
+imports:
+  - { resource: "./Finishers/AttachUploadsToObject.yaml" }
+
 TYPO3:
   CMS:
     Form:
@@ -21,4 +24,3 @@ TYPO3:
                     160: 'EXT:ws_bulletinboard/Resources/Private/Language/locallang.xlf'
                 partialRootPaths:
                   1623227656: 'EXT:ws_bulletinboard/Resources/Private/Partials/Form/Frontend/'
-
