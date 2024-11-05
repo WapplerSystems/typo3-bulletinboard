@@ -168,7 +168,7 @@ return [
                             'config' => [
                                 'appearance' => [
                                     'elementBrowserType' => 'file',
-                                    'elementBrowserAllowed' => 'jpg,jpeg',
+                                    'elementBrowserAllowed' => 'jpg,jpeg,png,gif',
                                 ],
                             ],
                         ],
@@ -188,7 +188,7 @@ return [
                     [
                         'userFunc' => 'TYPO3\\CMS\\Core\\Resource\\Filter\\FileExtensionFilter->filterInlineChildren',
                         'parameters' => [
-                            'allowedFileExtensions' => 'jpg,jpeg',
+                            'allowedFileExtensions' => 'jpg,jpeg,png,gif',
                             'disallowedFileExtensions' => '',
                         ],
                     ],
